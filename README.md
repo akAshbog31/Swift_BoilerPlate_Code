@@ -22,11 +22,13 @@ Getting Started:
 Clone the repository.
 Customize the project with your app-specific details.
 Build on top of the provided foundation to create your unique iOS application.
-Dependencies:
 
-ProgressHUD
-IQKeyboardManagerSwift
-SDWebImage
+Dependencies:
+- ProgressHUD
+- IQKeyboardManagerSwift
+- SDWebImage
+- R.Swift
+
 Contributing:
 We welcome contributions! If you have improvements, bug fixes, or additional features to propose, please open an issue or submit a pull request.
 
