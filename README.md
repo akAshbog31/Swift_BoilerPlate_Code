@@ -13,15 +13,16 @@ Key Features:
 
 - SDWebImage Integration: Streamline image loading and caching with SDWebImage, enhancing the performance of your app's image handling.
 
+- R.swift Integration: Leverage type-safe resource access with R.swift, ensuring that your assets, strings, and other resources are seamlessly integrated into your codebase.
+
 - Compositional Collection Views: Tackle complex UIs with ease using compositional collection views, enabling a modular and scalable approach to building dynamic user interfaces.
 
 - REST API Call Setup: Simplify networking tasks with pre-configured REST API call implementation, making it easy to communicate with backend services.
 
 Getting Started:
-
-Clone the repository.
-Customize the project with your app-specific details.
-Build on top of the provided foundation to create your unique iOS application.
+1. Clone the repository.
+2. Customize the project with your app-specific details.
+3. Build on top of the provided foundation to create your unique iOS application.
 
 Dependencies:
 - ProgressHUD
