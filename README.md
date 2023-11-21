@@ -5,7 +5,7 @@ Jumpstart your iOS projects with this Swift Boilerplate Project, a foundation th
 
 Key Features:
 
-Progress HUD Integration: Seamlessly display loading indicators with a built-in Progress HUD for a smooth user experience during asynchronous tasks.
+- Progress HUD Integration: Seamlessly display loading indicators with a built-in Progress HUD for a smooth user experience during asynchronous tasks.
 
 - IQKeyboardManager: Effortlessly handle keyboard management with IQKeyboardManager, ensuring a hassle-free text input experience throughout your app.
 
