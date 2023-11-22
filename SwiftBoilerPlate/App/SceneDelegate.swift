@@ -19,12 +19,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 }
 
 extension SceneDelegate {
-    func setRootVc(vc: VCType) {
+    func setRootVc(vc: VCType, animated: Bool = true, duration: TimeInterval = 0.5, options: UIView.AnimationOptions = .transitionCrossDissolve, _ completion: (() -> Void)? = nil) {
         guard let logInVc = R.storyboard.main.viewController() else { return }
         
         switch vc {
         case .main:
-            window?.rootViewController = UINavigationController(rootViewController: logInVc)
+            window?.switchRootVc(to: logInVc, animated: animated, duration: duration, options: options, completion)
         }
         
         window?.makeKeyAndVisible()

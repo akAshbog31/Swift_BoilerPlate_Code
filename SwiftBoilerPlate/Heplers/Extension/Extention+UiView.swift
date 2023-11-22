@@ -7,19 +7,26 @@
 
 import UIKit
 
-extension UIView {
-    @IBInspectable
-    var cornerRadius: CGFloat {
+public extension UIView {
+    /// SwifterSwift: Border color of view; also inspectable from Storyboard.
+    @IBInspectable var layerBorderColor: UIColor? {
         get {
-            return layer.cornerRadius
+            guard let color = layer.borderColor else { return nil }
+            return UIColor(cgColor: color)
         }
         set {
-            layer.cornerRadius = newValue
+            guard let color = newValue else {
+                layer.borderColor = nil
+                return
+            }
+            // Fix React-Native conflict issue
+            guard String(describing: type(of: color)) != "__NSCFType" else { return }
+            layer.borderColor = color.cgColor
         }
     }
-    
-    @IBInspectable
-    var borderWidth: CGFloat {
+
+    /// SwifterSwift: Border width of view; also inspectable from Storyboard.
+    @IBInspectable var layerBorderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -27,47 +34,55 @@ extension UIView {
             layer.borderWidth = newValue
         }
     }
-    
-    @IBInspectable
-    var borderColor: UIColor? {
+
+    /// SwifterSwift: Corner radius of view; also inspectable from Storyboard.
+    @IBInspectable var layerCornerRadius: CGFloat {
         get {
-            if let color = layer.borderColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
+            return layer.cornerRadius
         }
         set {
-            if let color = newValue {
-                layer.borderColor = color.cgColor
-            } else {
-                layer.borderColor = nil
-            }
+            layer.masksToBounds = true
+            layer.cornerRadius = abs(CGFloat(Int(newValue * 100)) / 100)
         }
     }
-    
-    @IBInspectable
-    var shadowRadius: CGFloat {
+
+    /// SwifterSwift: Height of view.
+    var height: CGFloat {
         get {
-            return layer.shadowRadius
+            return frame.size.height
         }
         set {
-            let radius = newValue * UIScreen.main.bounds.size.height / 812
-            layer.shadowRadius = radius
+            frame.size.height = newValue
         }
     }
-    
-    @IBInspectable
-    var shadowOpacity: Float {
+
+    /// SwifterSwift: Check if view is in RTL format.
+    var isRightToLeft: Bool {
+        return effectiveUserInterfaceLayoutDirection == .rightToLeft
+    }
+
+    /// SwifterSwift: Take screenshot of view (if applicable).
+    var screenshot: UIImage? {
+        let size = layer.frame.size
+        guard size != .zero else { return nil }
+        return UIGraphicsImageRenderer(size: layer.frame.size).image { context in
+            layer.render(in: context.cgContext)
+        }
+    }
+
+    /// SwifterSwift: Shadow color of view; also inspectable from Storyboard.
+    @IBInspectable var layerShadowColor: UIColor? {
         get {
-            return layer.shadowOpacity
+            guard let color = layer.shadowColor else { return nil }
+            return UIColor(cgColor: color)
         }
         set {
-            layer.shadowOpacity = newValue
+            layer.shadowColor = newValue?.cgColor
         }
     }
-    
-    @IBInspectable
-    var shadowOffset: CGSize {
+
+    /// SwifterSwift: Shadow offset of view; also inspectable from Storyboard.
+    @IBInspectable var layerShadowOffset: CGSize {
         get {
             return layer.shadowOffset
         }
@@ -75,21 +90,87 @@ extension UIView {
             layer.shadowOffset = newValue
         }
     }
-    
-    @IBInspectable
-    var shadowColor: UIColor? {
+
+    /// SwifterSwift: Shadow opacity of view; also inspectable from Storyboard.
+    @IBInspectable var layerShadowOpacity: Float {
         get {
-            if let color = layer.shadowColor {
-                return UIColor(cgColor: color)
-            }
-            return nil
+            return layer.shadowOpacity
         }
         set {
-            if let color = newValue {
-                layer.shadowColor = color.cgColor
-            } else {
-                layer.shadowColor = nil
+            layer.shadowOpacity = newValue
+        }
+    }
+
+    /// SwifterSwift: Shadow radius of view; also inspectable from Storyboard.
+    @IBInspectable var layerShadowRadius: CGFloat {
+        get {
+            return layer.shadowRadius
+        }
+        set {
+            layer.shadowRadius = newValue
+        }
+    }
+
+    /// SwifterSwift: Masks to bounds of view; also inspectable from Storyboard.
+    @IBInspectable var masksToBounds: Bool {
+        get {
+            return layer.masksToBounds
+        }
+        set {
+            layer.masksToBounds = newValue
+        }
+    }
+
+    /// SwifterSwift: Size of view.
+    var size: CGSize {
+        get {
+            return frame.size
+        }
+        set {
+            width = newValue.width
+            height = newValue.height
+        }
+    }
+
+    /// SwifterSwift: Get view's parent view controller
+    var parentViewController: UIViewController? {
+        weak var parentResponder: UIResponder? = self
+        while parentResponder != nil {
+            parentResponder = parentResponder!.next
+            if let viewController = parentResponder as? UIViewController {
+                return viewController
             }
+        }
+        return nil
+    }
+
+    /// SwifterSwift: Width of view.
+    var width: CGFloat {
+        get {
+            return frame.size.width
+        }
+        set {
+            frame.size.width = newValue
+        }
+    }
+
+    /// SwifterSwift: x origin of view.
+    var x: CGFloat {
+        get {
+            return frame.origin.x
+        }
+        set {
+            frame.origin.x = newValue
+        }
+    }
+
+    /// SwifterSwift: y origin of view.
+    var y: CGFloat {
+        get {
+            return frame.origin.y
+        }
+        set {
+            frame.origin.y = newValue
         }
     }
 }
@@ -150,30 +231,44 @@ extension UITextView {
     }
 }
 
-extension UIView {
-    func applyGradient(isVertical: Bool, colorArray: [UIColor]) {
-        layer.sublayers?.filter({ $0 is CAGradientLayer }).forEach({ $0.removeFromSuperlayer() })
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = colorArray.map({ $0.cgColor })
-        if isVertical {
-            gradientLayer.locations = [0.0, 1.0]
-        } else {
-            gradientLayer.startPoint = CGPoint(x: 0.0, y: 0.5)
-            gradientLayer.endPoint = CGPoint(x: 1.0, y: 0.5)
+public extension UIView {
+    struct GradientDirection {
+        public static let topToBottom = GradientDirection(startPoint: CGPoint(x: 0.5, y: 0.0),
+                                                          endPoint: CGPoint(x: 0.5, y: 1.0))
+        public static let bottomToTop = GradientDirection(startPoint: CGPoint(x: 0.5, y: 1.0),
+                                                          endPoint: CGPoint(x: 0.5, y: 0.0))
+        public static let leftToRight = GradientDirection(startPoint: CGPoint(x: 0.0, y: 0.5),
+                                                          endPoint: CGPoint(x: 1.0, y: 0.5))
+        public static let rightToLeft = GradientDirection(startPoint: CGPoint(x: 1.0, y: 0.5),
+                                                          endPoint: CGPoint(x: 0.0, y: 0.5))
+
+        public let startPoint: CGPoint
+        public let endPoint: CGPoint
+
+        public init(startPoint: CGPoint, endPoint: CGPoint) {
+            self.startPoint = startPoint
+            self.endPoint = endPoint
         }
-        backgroundColor = .clear
+    }
+}
+
+extension UIView {
+    func addGradient(colors: [UIColor], locations: [CGFloat] = [0.0, 1.0], direction: GradientDirection) {
+        let gradientLayer = CAGradientLayer()
         gradientLayer.frame = bounds
-        layer.insertSublayer(gradientLayer, at: 0)
+        gradientLayer.colors = colors.map(\.cgColor)
+        gradientLayer.locations = locations.map { NSNumber(value: $0) }
+        gradientLayer.startPoint = direction.startPoint
+        gradientLayer.endPoint = direction.endPoint
+        layer.addSublayer(gradientLayer)
     }
     
-    func dropShadow(scale: Bool = true, shadowOffSet: CGSize = .zero, shadowOpacity: Float, shadowRadius: CGFloat, shadowColor: CGColor) {
+    func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+        layer.shadowColor = color.cgColor
+        layer.shadowOffset = offset
+        layer.shadowRadius = radius
+        layer.shadowOpacity = opacity
         layer.masksToBounds = false
-        layer.shadowColor = shadowColor
-        layer.shadowOpacity = shadowOpacity
-        layer.shadowOffset = shadowOffSet
-        layer.shadowRadius = shadowRadius
-        layer.shouldRasterize = true
-        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
     
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {

@@ -49,6 +49,8 @@
 		38D291DD2B0E4D6400AC5C5A /* Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291D82B0E4D6300AC5C5A /* Ext.swift */; };
 		38D291DE2B0E4D6400AC5C5A /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291DA2B0E4D6300AC5C5A /* Enums.swift */; };
 		38D291E02B0E4F0000AC5C5A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291DF2B0E4F0000AC5C5A /* ViewModel.swift */; };
+		38D291E52B0E60AD00AC5C5A /* Extention+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */; };
+		38D291E82B0E68A200AC5C5A /* Extention+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +93,8 @@
 		38D291D82B0E4D6300AC5C5A /* Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ext.swift; sourceTree = "<group>"; };
 		38D291DA2B0E4D6300AC5C5A /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		38D291DF2B0E4F0000AC5C5A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIWindow.swift"; sourceTree = "<group>"; };
+		38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UINavigationController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +216,8 @@
 				0455A9D72B0CAF6E00C86E0A /* Extention+UITapGestureRecognizer.swift */,
 				0455A9D82B0CAF6E00C86E0A /* Extention+UItableView.swift */,
 				0455A9D92B0CAF6E00C86E0A /* Extention+Uilable.swift */,
+				38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */,
+				38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -460,8 +466,10 @@
 				0455AA2E2B0CBD3800C86E0A /* BaseVm.swift in Sources */,
 				0455AA0E2B0CAF6E00C86E0A /* Globals.swift in Sources */,
 				0455AA442B0CC38A00C86E0A /* HeaderTitleCell.swift in Sources */,
+				38D291E52B0E60AD00AC5C5A /* Extention+UIWindow.swift in Sources */,
 				0455AA012B0CAF6E00C86E0A /* Extention+UiView.swift in Sources */,
 				0455A9B02B0CADE300C86E0A /* AppDelegate.swift in Sources */,
+				38D291E82B0E68A200AC5C5A /* Extention+UINavigationController.swift in Sources */,
 				0455AA102B0CAF6E00C86E0A /* AppLayout.swift in Sources */,
 				0455AA032B0CAF6E00C86E0A /* Extention+UItableView.swift in Sources */,
 				38D291E02B0E4F0000AC5C5A /* ViewModel.swift in Sources */,

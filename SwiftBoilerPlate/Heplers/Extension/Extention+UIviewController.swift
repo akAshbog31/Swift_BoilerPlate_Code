@@ -13,18 +13,18 @@ import IQKeyboardManagerSwift
 extension UIViewController {
     func pushVc(vc: UIViewController?) {
         guard let vc = vc else { return }
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(vc)
     }
     
     func popVc() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController()
     }
     
     func showHUD(progressLabel: String = "Loading...") {
         DispatchQueue.main.async {
             let progressHUD = MBProgressHUD.showAdded(to: (Utils.shared.getSceneDelegate()?.window)!, animated: true)
             progressHUD.label.text = progressLabel
-            progressHUD.bezelView.layer.cornerRadius = 18
+            progressHUD.bezelView.layer.cornerRadius = Globals.getValueAsPerDeviceHeight(18)
             progressHUD.bezelView.blurEffectStyle = .systemChromeMaterialDark
             progressHUD.contentColor = .systemBackground
             progressHUD.bezelView.style = .blur
