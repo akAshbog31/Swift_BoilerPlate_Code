@@ -18,7 +18,7 @@ extension UIWindow {
         UIView.transition(with: self, duration: duration, options: options, animations: {
             let oldState = UIView.areAnimationsEnabled
             UIView.setAnimationsEnabled(false)
-            self.rootViewController = viewController
+            self.rootViewController = UINavigationController(rootViewController: viewController)
             UIView.setAnimationsEnabled(oldState)
         }, completion: { _ in
             completion?()
