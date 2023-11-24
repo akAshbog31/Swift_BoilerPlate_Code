@@ -40,7 +40,7 @@ final class ViewController: BaseVc {
         viewModel.transform(input: input.eraseToAnyPublisher()).sink { [weak self] event in
             switch event {
             case .loader(let isLoading):
-                isLoading ? self?.showHUD() : self?.dismissHUD()
+                isLoading ? self?.showHUD() : self?.hideHUD()
             case .showError(let msg):
                 self?.showAlert(msg: msg)
             }
@@ -84,6 +84,13 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         default:
             let cell: MainCell = collectionView.deque(indexPath: indexPath)
             return cell
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        showHUD()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+            self.hideHUD()
         }
     }
     

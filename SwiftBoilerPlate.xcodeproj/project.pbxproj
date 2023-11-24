@@ -30,7 +30,6 @@
 		0455AA0F2B0CAF6E00C86E0A /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455A9F52B0CAF6E00C86E0A /* API.swift */; };
 		0455AA102B0CAF6E00C86E0A /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455A9F72B0CAF6E00C86E0A /* AppLayout.swift */; };
 		0455AA172B0CB10200C86E0A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA162B0CB10200C86E0A /* IQKeyboardManagerSwift */; };
-		0455AA1A2B0CB10F00C86E0A /* MBProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA192B0CB10F00C86E0A /* MBProgressHUD */; };
 		0455AA1D2B0CB12300C86E0A /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA1C2B0CB12300C86E0A /* RswiftLibrary */; };
 		0455AA1F2B0CB12300C86E0A /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA1E2B0CB12300C86E0A /* rswift */; };
 		0455AA222B0CB13900C86E0A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA212B0CB13900C86E0A /* SDWebImage */; };
@@ -44,6 +43,8 @@
 		0455AA412B0CC05200C86E0A /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA3F2B0CC05200C86E0A /* MainCell.xib */; };
 		0455AA442B0CC38A00C86E0A /* HeaderTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */; };
 		0455AA452B0CC38A00C86E0A /* HeaderTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */; };
+		38B2C4722B111B4700720C66 /* IHProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 38B2C4712B111B4700720C66 /* IHProgressHUD */; };
+		38B2C4752B111CA600720C66 /* Extention+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C4742B111CA600720C66 /* Extention+UIColor.swift */; };
 		38D291DB2B0E4D6400AC5C5A /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291D52B0E4D6300AC5C5A /* APIProtocol.swift */; };
 		38D291DC2B0E4D6400AC5C5A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291D62B0E4D6300AC5C5A /* APIService.swift */; };
 		38D291DD2B0E4D6400AC5C5A /* Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291D82B0E4D6300AC5C5A /* Ext.swift */; };
@@ -88,6 +89,7 @@
 		0455AA3F2B0CC05200C86E0A /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTitleCell.swift; sourceTree = "<group>"; };
 		0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTitleCell.xib; sourceTree = "<group>"; };
+		38B2C4742B111CA600720C66 /* Extention+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIColor.swift"; sourceTree = "<group>"; };
 		38D291D52B0E4D6300AC5C5A /* APIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		38D291D62B0E4D6300AC5C5A /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		38D291D82B0E4D6300AC5C5A /* Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ext.swift; sourceTree = "<group>"; };
@@ -102,10 +104,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0455AA1A2B0CB10F00C86E0A /* MBProgressHUD in Frameworks */,
 				0455AA1F2B0CB12300C86E0A /* rswift in Frameworks */,
 				0455AA172B0CB10200C86E0A /* IQKeyboardManagerSwift in Frameworks */,
 				0455AA1D2B0CB12300C86E0A /* RswiftLibrary in Frameworks */,
+				38B2C4722B111B4700720C66 /* IHProgressHUD in Frameworks */,
 				0455AA222B0CB13900C86E0A /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +220,7 @@
 				0455A9D92B0CAF6E00C86E0A /* Extention+Uilable.swift */,
 				38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */,
 				38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */,
+				38B2C4742B111CA600720C66 /* Extention+UIColor.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -379,10 +382,10 @@
 			name = SwiftBoilerPlate;
 			packageProductDependencies = (
 				0455AA162B0CB10200C86E0A /* IQKeyboardManagerSwift */,
-				0455AA192B0CB10F00C86E0A /* MBProgressHUD */,
 				0455AA1C2B0CB12300C86E0A /* RswiftLibrary */,
 				0455AA1E2B0CB12300C86E0A /* rswift */,
 				0455AA212B0CB13900C86E0A /* SDWebImage */,
+				38B2C4712B111B4700720C66 /* IHProgressHUD */,
 			);
 			productName = BoilerPlate;
 			productReference = 0455A9AC2B0CADE300C86E0A /* SwiftBoilerPlate.app */;
@@ -414,9 +417,9 @@
 			mainGroup = 0455A9A32B0CADE300C86E0A;
 			packageReferences = (
 				0455AA152B0CB10200C86E0A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				0455AA182B0CB10F00C86E0A /* XCRemoteSwiftPackageReference "MBProgressHUD" */,
 				0455AA1B2B0CB12300C86E0A /* XCRemoteSwiftPackageReference "R.swift" */,
 				0455AA202B0CB13900C86E0A /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				38B2C4702B111B4700720C66 /* XCRemoteSwiftPackageReference "IHProgressHUD" */,
 			);
 			productRefGroup = 0455A9AD2B0CADE300C86E0A /* Products */;
 			projectDirPath = "";
@@ -480,6 +483,7 @@
 				0455AA3A2B0CC00C00C86E0A /* MainModel.swift in Sources */,
 				38D291DD2B0E4D6400AC5C5A /* Ext.swift in Sources */,
 				0455A9B22B0CADE300C86E0A /* SceneDelegate.swift in Sources */,
+				38B2C4752B111CA600720C66 /* Extention+UIColor.swift in Sources */,
 				0455AA372B0CBD5C00C86E0A /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -713,14 +717,6 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		0455AA182B0CB10F00C86E0A /* XCRemoteSwiftPackageReference "MBProgressHUD" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/jdg/MBProgressHUD";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		0455AA1B2B0CB12300C86E0A /* XCRemoteSwiftPackageReference "R.swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
@@ -737,6 +733,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		38B2C4702B111B4700720C66 /* XCRemoteSwiftPackageReference "IHProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swiftify-Corp/IHProgressHUD.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.8;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -744,11 +748,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0455AA152B0CB10200C86E0A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
-		};
-		0455AA192B0CB10F00C86E0A /* MBProgressHUD */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0455AA182B0CB10F00C86E0A /* XCRemoteSwiftPackageReference "MBProgressHUD" */;
-			productName = MBProgressHUD;
 		};
 		0455AA1C2B0CB12300C86E0A /* RswiftLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -768,6 +767,11 @@
 		0455AA252B0CBAFE00C86E0A /* RswiftGenerateInternalResources */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		38B2C4712B111B4700720C66 /* IHProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 38B2C4702B111B4700720C66 /* XCRemoteSwiftPackageReference "IHProgressHUD" */;
+			productName = IHProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

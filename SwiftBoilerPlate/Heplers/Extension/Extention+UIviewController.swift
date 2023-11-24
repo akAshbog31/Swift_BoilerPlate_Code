@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import MBProgressHUD
+import IHProgressHUD
 import IQKeyboardManagerSwift
 
 
@@ -20,20 +20,27 @@ extension UIViewController {
         self.navigationController?.popViewController()
     }
     
-    func showHUD(progressLabel: String = "Loading...") {
+    func showHUD(progressLabel: String = "Loading...", hudColor: UIColor = .label) {
         DispatchQueue.main.async {
-            let progressHUD = MBProgressHUD.showAdded(to: (Utils.shared.getSceneDelegate()?.window)!, animated: true)
-            progressHUD.label.text = progressLabel
-            progressHUD.bezelView.layer.cornerRadius = Globals.getValueAsPerDeviceHeight(18)
-            progressHUD.bezelView.blurEffectStyle = .systemChromeMaterialDark
-            progressHUD.contentColor = .systemBackground
-            progressHUD.bezelView.style = .blur
+            IHProgressHUD.set(backgroundColor: .clear)
+            IHProgressHUD.setHapticsEnabled(hapticsEnabled: true)
+            IHProgressHUD.set(containerView: Globals.keyWindow?.rootViewController?.view)
+            IHProgressHUD.set(defaultAnimationType: .flat)
+            IHProgressHUD.set(defaultMaskType: .clear)
+            IHProgressHUD.set(foregroundColor: hudColor)
+            IHProgressHUD.set(ringThickness: Globals.getValueAsPerDeviceHeight(4))
+            IHProgressHUD.set(font: .boldSystemFont(ofSize: Globals.getValueAsPerDeviceHeight(17)))
+            IHProgressHUD.set(ringRadius: Globals.getValueAsPerDeviceHeight(20))
+            IHProgressHUD.show(withStatus: progressLabel)
+            Globals.keyWindow?.rootViewController?.view.isUserInteractionEnabled = false
         }
     }
     
-    func dismissHUD(isAnimated: Bool = true) {
+    func hideHUD(isAnimated: Bool = true) {
         DispatchQueue.main.async {
-            MBProgressHUD.hide(for: (Utils.shared.getSceneDelegate()?.window)!, animated: isAnimated)
+            IHProgressHUD.dismissWithCompletion {
+                Globals.keyWindow?.rootViewController?.view.isUserInteractionEnabled = true
+            }
         }
     }
     

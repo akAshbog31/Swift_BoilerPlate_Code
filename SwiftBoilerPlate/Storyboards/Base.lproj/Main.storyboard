@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,13 +13,35 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="BoilerPlate" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftBoilerPlate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4IB-SV-HF1">
+                                <rect key="frame" x="0.0" y="59" width="393" height="63"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Wel Come" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Woc-qK-ZSB">
+                                        <rect key="frame" x="20" y="14" width="353" height="35"/>
+                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
+                                        <color key="textColor" name="AccentColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="dynamicFontSize">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Woc-qK-ZSB" firstAttribute="leading" secondItem="4IB-SV-HF1" secondAttribute="leading" constant="20" id="8ki-Or-LDr"/>
+                                    <constraint firstAttribute="trailing" secondItem="Woc-qK-ZSB" secondAttribute="trailing" constant="20" id="MJ0-p4-TzV"/>
+                                    <constraint firstItem="Woc-qK-ZSB" firstAttribute="centerY" secondItem="4IB-SV-HF1" secondAttribute="centerY" id="NaD-fJ-EOF"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tZH-qG-iMB">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="122" width="393" height="730"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0RA-Y9-9l4">
                                     <size key="itemSize" width="128" height="128"/>
@@ -32,9 +55,13 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tZH-qG-iMB" secondAttribute="bottom" id="Vx7-Ws-7Sb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4IB-SV-HF1" secondAttribute="trailing" id="7a7-dI-NTA"/>
+                            <constraint firstItem="4IB-SV-HF1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EsO-hv-uNe"/>
+                            <constraint firstItem="4IB-SV-HF1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LBk-yR-BWT"/>
+                            <constraint firstAttribute="bottom" secondItem="tZH-qG-iMB" secondAttribute="bottom" id="Vx7-Ws-7Sb"/>
+                            <constraint firstItem="tZH-qG-iMB" firstAttribute="top" secondItem="4IB-SV-HF1" secondAttribute="bottom" id="YgU-bV-epW"/>
+                            <constraint firstItem="4IB-SV-HF1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="60:812" id="ZoR-Xw-I40"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tZH-qG-iMB" secondAttribute="trailing" id="mNh-aM-wfN"/>
-                            <constraint firstItem="tZH-qG-iMB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="nzJ-Q5-EyR"/>
                             <constraint firstItem="tZH-qG-iMB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pdd-cw-YT5"/>
                         </constraints>
                     </view>
@@ -44,10 +71,13 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="48" y="-2"/>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
