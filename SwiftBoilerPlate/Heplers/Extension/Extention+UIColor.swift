@@ -13,7 +13,7 @@ extension UIColor {
             red: .random(in: 0...1),
             green: .random(in: 0...1),
             blue: .random(in: 0...1),
-            alpha: .random(in: 0.4...0.8)
+            alpha: .random(in: 0.2...0.5)
         )
     }
 }

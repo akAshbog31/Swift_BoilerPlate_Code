@@ -36,7 +36,7 @@ extension UIViewController {
         }
     }
     
-    func hideHUD(isAnimated: Bool = true) {
+    func hideHUD() {
         DispatchQueue.main.async {
             IHProgressHUD.dismissWithCompletion {
                 Globals.keyWindow?.rootViewController?.view.isUserInteractionEnabled = true
