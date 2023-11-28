@@ -52,6 +52,7 @@
 		38D291E02B0E4F0000AC5C5A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291DF2B0E4F0000AC5C5A /* ViewModel.swift */; };
 		38D291E52B0E60AD00AC5C5A /* Extention+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */; };
 		38D291E82B0E68A200AC5C5A /* Extention+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */; };
+		38F28C672B164F090080BB60 /* Extention+DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F28C662B164F090080BB60 /* Extention+DispatchQueue.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,6 +98,7 @@
 		38D291DF2B0E4F0000AC5C5A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIWindow.swift"; sourceTree = "<group>"; };
 		38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UINavigationController.swift"; sourceTree = "<group>"; };
+		38F28C662B164F090080BB60 /* Extention+DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+DispatchQueue.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +223,7 @@
 				38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */,
 				38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */,
 				38B2C4742B111CA600720C66 /* Extention+UIColor.swift */,
+				38F28C662B164F090080BB60 /* Extention+DispatchQueue.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -468,6 +471,7 @@
 				0455AA042B0CAF6E00C86E0A /* Extention+Uilable.swift in Sources */,
 				0455AA2E2B0CBD3800C86E0A /* BaseVm.swift in Sources */,
 				0455AA0E2B0CAF6E00C86E0A /* Globals.swift in Sources */,
+				38F28C672B164F090080BB60 /* Extention+DispatchQueue.swift in Sources */,
 				0455AA442B0CC38A00C86E0A /* HeaderTitleCell.swift in Sources */,
 				38D291E52B0E60AD00AC5C5A /* Extention+UIWindow.swift in Sources */,
 				0455AA012B0CAF6E00C86E0A /* Extention+UiView.swift in Sources */,

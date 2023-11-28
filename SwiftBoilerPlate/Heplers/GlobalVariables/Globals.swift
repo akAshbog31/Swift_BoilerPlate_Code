@@ -14,6 +14,9 @@ typealias Bag = Set<AnyCancellable>
 typealias AppSubject<T> = PassthroughSubject<T, Never>
 typealias AppAnyPublisher<T> = AnyPublisher<T, Never>
 
+//MARK: - Public Valriable
+public let queue = DispatchQueue.main
+
 //MARK: - Globals
 enum Globals {
     //MARK: - Values With Decive Size

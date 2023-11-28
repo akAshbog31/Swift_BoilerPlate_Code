@@ -89,7 +89,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         showHUD()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+        queue.after(time: 4) {
             self.hideHUD()
         }
     }

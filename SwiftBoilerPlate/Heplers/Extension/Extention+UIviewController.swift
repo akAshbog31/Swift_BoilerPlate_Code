@@ -21,7 +21,7 @@ extension UIViewController {
     }
     
     func showHUD(progressLabel: String = "Loading...", hudColor: UIColor = .label) {
-        DispatchQueue.main.async {
+        queue.async {
             IHProgressHUD.set(backgroundColor: .clear)
             IHProgressHUD.setHapticsEnabled(hapticsEnabled: true)
             IHProgressHUD.set(containerView: Globals.keyWindow?.rootViewController?.view)
@@ -37,7 +37,7 @@ extension UIViewController {
     }
     
     func hideHUD() {
-        DispatchQueue.main.async {
+        queue.async {
             IHProgressHUD.dismissWithCompletion {
                 Globals.keyWindow?.rootViewController?.view.isUserInteractionEnabled = true
             }
