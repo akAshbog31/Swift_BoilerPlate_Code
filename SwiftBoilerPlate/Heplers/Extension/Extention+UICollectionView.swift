@@ -22,6 +22,14 @@ extension UICollectionView {
             else { fatalError("=====>Error in cell") }
         return cell
     }
+    
+    func reload() {
+        UIView.transition(with: self, duration: 0.35, options: .transitionCrossDissolve) {
+            queue.async {
+                self.reloadData()
+            }
+        }
+    }
 }
 
 extension UICollectionReusableView {

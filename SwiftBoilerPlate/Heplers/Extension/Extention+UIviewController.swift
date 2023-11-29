@@ -11,13 +11,23 @@ import IQKeyboardManagerSwift
 
 
 extension UIViewController {
-    func pushVc(vc: UIViewController?) {
+    func pushVc(vc: UIViewController?, transition type: CATransitionType = .fade, interval: TimeInterval = 0.3) {
         guard let vc = vc else { return }
-        self.navigationController?.pushViewController(vc)
+        createTransition(transition: type, interval: interval)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func popVc() {
-        self.navigationController?.popViewController()
+    func popVc(transition type: CATransitionType = .fade, interval: TimeInterval = 0.3) {
+        createTransition(transition: type, interval: interval)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func createTransition(transition type: CATransitionType = .fade, interval: TimeInterval = 0.3) {
+        let transition = CATransition()
+        transition.duration = interval
+        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        transition.type = type
+        self.navigationController?.view.layer.add(transition, forKey: nil)
     }
     
     func showHUD(progressLabel: String = "Loading...", hudColor: UIColor = .label) {

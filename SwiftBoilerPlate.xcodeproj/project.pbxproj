@@ -45,13 +45,13 @@
 		0455AA452B0CC38A00C86E0A /* HeaderTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */; };
 		38B2C4722B111B4700720C66 /* IHProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 38B2C4712B111B4700720C66 /* IHProgressHUD */; };
 		38B2C4752B111CA600720C66 /* Extention+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C4742B111CA600720C66 /* Extention+UIColor.swift */; };
+		38BDCDD02B1781EE00AA6CC4 /* Extention+UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDCDCF2B1781EE00AA6CC4 /* Extention+UITabBarController.swift */; };
 		38D291DB2B0E4D6400AC5C5A /* APIProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291D52B0E4D6300AC5C5A /* APIProtocol.swift */; };
 		38D291DC2B0E4D6400AC5C5A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291D62B0E4D6300AC5C5A /* APIService.swift */; };
 		38D291DD2B0E4D6400AC5C5A /* Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291D82B0E4D6300AC5C5A /* Ext.swift */; };
 		38D291DE2B0E4D6400AC5C5A /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291DA2B0E4D6300AC5C5A /* Enums.swift */; };
 		38D291E02B0E4F0000AC5C5A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291DF2B0E4F0000AC5C5A /* ViewModel.swift */; };
 		38D291E52B0E60AD00AC5C5A /* Extention+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */; };
-		38D291E82B0E68A200AC5C5A /* Extention+UINavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */; };
 		38F28C672B164F090080BB60 /* Extention+DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F28C662B164F090080BB60 /* Extention+DispatchQueue.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,13 +91,13 @@
 		0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTitleCell.swift; sourceTree = "<group>"; };
 		0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTitleCell.xib; sourceTree = "<group>"; };
 		38B2C4742B111CA600720C66 /* Extention+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIColor.swift"; sourceTree = "<group>"; };
+		38BDCDCF2B1781EE00AA6CC4 /* Extention+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UITabBarController.swift"; sourceTree = "<group>"; };
 		38D291D52B0E4D6300AC5C5A /* APIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
 		38D291D62B0E4D6300AC5C5A /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		38D291D82B0E4D6300AC5C5A /* Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ext.swift; sourceTree = "<group>"; };
 		38D291DA2B0E4D6300AC5C5A /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		38D291DF2B0E4F0000AC5C5A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIWindow.swift"; sourceTree = "<group>"; };
-		38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UINavigationController.swift"; sourceTree = "<group>"; };
 		38F28C662B164F090080BB60 /* Extention+DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+DispatchQueue.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -221,9 +221,9 @@
 				0455A9D82B0CAF6E00C86E0A /* Extention+UItableView.swift */,
 				0455A9D92B0CAF6E00C86E0A /* Extention+Uilable.swift */,
 				38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */,
-				38D291E72B0E68A100AC5C5A /* Extention+UINavigationController.swift */,
 				38B2C4742B111CA600720C66 /* Extention+UIColor.swift */,
 				38F28C662B164F090080BB60 /* Extention+DispatchQueue.swift */,
+				38BDCDCF2B1781EE00AA6CC4 /* Extention+UITabBarController.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -476,11 +476,11 @@
 				38D291E52B0E60AD00AC5C5A /* Extention+UIWindow.swift in Sources */,
 				0455AA012B0CAF6E00C86E0A /* Extention+UiView.swift in Sources */,
 				0455A9B02B0CADE300C86E0A /* AppDelegate.swift in Sources */,
-				38D291E82B0E68A200AC5C5A /* Extention+UINavigationController.swift in Sources */,
 				0455AA102B0CAF6E00C86E0A /* AppLayout.swift in Sources */,
 				0455AA032B0CAF6E00C86E0A /* Extention+UItableView.swift in Sources */,
 				38D291E02B0E4F0000AC5C5A /* ViewModel.swift in Sources */,
 				38D291DE2B0E4D6400AC5C5A /* Enums.swift in Sources */,
+				38BDCDD02B1781EE00AA6CC4 /* Extention+UITabBarController.swift in Sources */,
 				38D291DC2B0E4D6400AC5C5A /* APIService.swift in Sources */,
 				0455AA362B0CBD5C00C86E0A /* NetworkManager.swift in Sources */,
 				0455AA382B0CBD5C00C86E0A /* ImagePickerManager.swift in Sources */,
