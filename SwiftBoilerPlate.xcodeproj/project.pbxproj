@@ -52,6 +52,7 @@
 		38D291DE2B0E4D6400AC5C5A /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291DA2B0E4D6300AC5C5A /* Enums.swift */; };
 		38D291E02B0E4F0000AC5C5A /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291DF2B0E4F0000AC5C5A /* ViewModel.swift */; };
 		38D291E52B0E60AD00AC5C5A /* Extention+UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */; };
+		38DDE1A12B2EA3A1003E9CB7 /* TaskCancellables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DDE1A02B2EA3A1003E9CB7 /* TaskCancellables.swift */; };
 		38F28C672B164F090080BB60 /* Extention+DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F28C662B164F090080BB60 /* Extention+DispatchQueue.swift */; };
 /* End PBXBuildFile section */
 
@@ -98,6 +99,7 @@
 		38D291DA2B0E4D6300AC5C5A /* Enums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		38D291DF2B0E4F0000AC5C5A /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		38D291E42B0E60AD00AC5C5A /* Extention+UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIWindow.swift"; sourceTree = "<group>"; };
+		38DDE1A02B2EA3A1003E9CB7 /* TaskCancellables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCancellables.swift; sourceTree = "<group>"; };
 		38F28C662B164F090080BB60 /* Extention+DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+DispatchQueue.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				0455A9DB2B0CAF6E00C86E0A /* Utils.swift */,
+				38DDE1A02B2EA3A1003E9CB7 /* TaskCancellables.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -402,7 +405,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1430;
-				LastUpgradeCheck = 1430;
+				LastUpgradeCheck = 1510;
 				TargetAttributes = {
 					0455A9AB2B0CADE300C86E0A = {
 						CreatedOnToolsVersion = 14.3.1;
@@ -487,6 +490,7 @@
 				0455AA3A2B0CC00C00C86E0A /* MainModel.swift in Sources */,
 				38D291DD2B0E4D6400AC5C5A /* Ext.swift in Sources */,
 				0455A9B22B0CADE300C86E0A /* SceneDelegate.swift in Sources */,
+				38DDE1A12B2EA3A1003E9CB7 /* TaskCancellables.swift in Sources */,
 				38B2C4752B111CA600720C66 /* Extention+UIColor.swift in Sources */,
 				0455AA372B0CBD5C00C86E0A /* NetworkService.swift in Sources */,
 			);

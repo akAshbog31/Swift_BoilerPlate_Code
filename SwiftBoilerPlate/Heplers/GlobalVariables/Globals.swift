@@ -10,6 +10,7 @@ import UIKit
 import Combine
 
 //MARK: - TypeAlice
+typealias TaskBag = Set<TaskCancellables>
 typealias Bag = Set<AnyCancellable>
 typealias AppSubject<T> = PassthroughSubject<T, Never>
 typealias AppAnyPublisher<T> = AnyPublisher<T, Never>

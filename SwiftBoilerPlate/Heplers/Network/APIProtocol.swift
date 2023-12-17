@@ -35,7 +35,7 @@ extension APIProtocol {
             urlRequest.addValue("multipart/form-data; boundary=\(multiPart.1)", forHTTPHeaderField: "Content-Type")
             urlRequest.httpBody = multiPart.0
         }
-#if DEVELOPMENT
+#if DEBUG
         print(urlRequest.curlString)
 #endif
         return urlRequest

@@ -9,7 +9,6 @@ import UIKit
 import IHProgressHUD
 import IQKeyboardManagerSwift
 
-
 extension UIViewController {
     func pushVc(vc: UIViewController?, transition type: CATransitionType = .fade, interval: TimeInterval = 0.3) {
         guard let vc = vc else { return }

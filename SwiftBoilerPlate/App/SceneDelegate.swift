@@ -18,6 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+//MARK: - Extension SceneDelegate
 extension SceneDelegate {
     func setRootVc(vc: VCType, animated: Bool = true, duration: TimeInterval = 0.5, options: UIView.AnimationOptions = .transitionCrossDissolve, _ completion: (() -> Void)? = nil) {
         guard let logInVc = R.storyboard.main.viewController() else { return }
@@ -31,6 +32,7 @@ extension SceneDelegate {
     }
 }
 
+//MARK: - Enum VCType
 enum VCType {
     case main
 }

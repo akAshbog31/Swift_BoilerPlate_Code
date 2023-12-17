@@ -10,6 +10,7 @@ import Foundation
 final class ViewModel: BaseVm {
     //MARK: - Properties
     var disposeBag = Bag()
+    var taskDisposeBag = TaskBag()
     var networkService: NetworkService
     var output = AppSubject<Output>()
     
@@ -52,7 +53,7 @@ final class ViewModel: BaseVm {
                 output.send(.loader(isLoading: false))
                 output.send(.showError(msg: "Test"))
             }
-        }
+        }.store(in: &taskDisposeBag)
     }
 }
 
