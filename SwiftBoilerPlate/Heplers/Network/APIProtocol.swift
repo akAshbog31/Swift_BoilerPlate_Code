@@ -32,8 +32,8 @@ extension APIProtocol {
             urlRequest.httpBody = try JSONSerialization.data(withJSONObject: bodyParams, options: [])
         }
         if let multiPart = task.formData {
-            urlRequest.addValue("multipart/form-data; boundary=\(multiPart.1)", forHTTPHeaderField: "Content-Type")
-            urlRequest.httpBody = multiPart.0
+            urlRequest.addValue(multiPart.httpContentTypeHeadeValue, forHTTPHeaderField: "Content-Type")
+            urlRequest.httpBody = multiPart.httpBody
         }
 #if DEBUG
         print(urlRequest.curlString)

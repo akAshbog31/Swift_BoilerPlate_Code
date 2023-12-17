@@ -8,5 +8,5 @@
 import Foundation
 
 protocol NetworkService {
-    func testAPI() async throws -> SampleModel
+    func updateProfile(model: UpdateProfilePostModel) async throws -> GenralResponseModel<User>
 }

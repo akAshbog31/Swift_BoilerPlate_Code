@@ -26,43 +26,7 @@ extension Dictionary where Key == String {
             return URLQueryItem(name: key, value: stringValue)
         }
     }
-    
-    func asMultiPartData() -> (Data, String) {
-        var formData = Data()
-        let boundary = "-----------------------------\(UUID().uuidString)"
-        let lineBreak = "\r\n"
-        
-        for (key, value) in self {
-            convertToMultipartFormData(key: key, value: value, boundary: boundary, formData: &formData)
-        }
-
-        formData.append("--\(boundary)--\(lineBreak)" .data(using: .utf8)!)
-        return (formData, boundary)
-    }
-
-    private func convertToMultipartFormData(key: String, value: Any, boundary: String, formData: inout Data) {
-        if let stringValue = value as? CustomStringConvertible {
-            if let data = stringValue.description.data(using: .utf8) {
-                formData.append("--\(boundary)\r\n".data(using: .utf8)!)
-                formData.append("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n".data(using: .utf8)!)
-                formData.append(data)
-                formData.append("\r\n".data(using: .utf8)!)
-            }
-        } else if let imageData = value as? Data {
-            let mimeType = "image/jpeg"
-            formData.append("--\(boundary)\r\n".data(using: .utf8)!)
-            formData.append("Content-Disposition: form-data; name=\"\(key)\"; filename=\"\(key).jpeg\"\r\n".data(using: .utf8)!)
-            formData.append("Content-Type: \(mimeType)\r\n\r\n".data(using: .utf8)!)
-            formData.append(imageData)
-            formData.append("\r\n".data(using: .utf8)!)
-        } else if let dictionaryValue = value as? [String: Any] {
-            for (nestedKey, nestedValue) in dictionaryValue {
-                convertToMultipartFormData(key: "\(key)[\(nestedKey)]", value: nestedValue, boundary: boundary, formData: &formData)
-            }
-        }
-    }
 }
-
 
 extension URLRequest {
     public var curlString: String {
@@ -85,5 +49,12 @@ extension URLRequest {
             command.append("-d '\(body)'")
         }
         return command.joined(separator: " \\\n\t")
+    }
+}
+
+public extension Data {
+    mutating func append(_ string: String, encoding: String.Encoding = .utf8) {
+        guard let data = string.data(using: encoding) else { return }
+        append(data)
     }
 }

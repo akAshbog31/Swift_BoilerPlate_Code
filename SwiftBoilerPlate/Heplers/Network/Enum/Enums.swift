@@ -30,7 +30,7 @@ enum APIMethod: String {
 enum Request {
     case jsonEncoding(_ model: [String: Any]?)
     case queryString(_ dict: [String: Any]?)
-    case multiPart(_ dict: [String: Any]?)
+    case multiPart(_ multiPart: MultipartRequest)
     case none
     
     var jsonBody: [String: Any]? {
@@ -50,11 +50,11 @@ enum Request {
         }
     }
     
-    var formData: (Data, String)? {
+    var formData: MultipartRequest? {
         switch self {
         case .jsonEncoding, .queryString, .none: return nil
-        case .multiPart(let dict):
-            return dict?.asMultiPartData()
+        case .multiPart(let multiPart):
+            return multiPart
         }
     }
 }

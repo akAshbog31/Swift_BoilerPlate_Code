@@ -43,6 +43,7 @@
 		0455AA412B0CC05200C86E0A /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA3F2B0CC05200C86E0A /* MainCell.xib */; };
 		0455AA442B0CC38A00C86E0A /* HeaderTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */; };
 		0455AA452B0CC38A00C86E0A /* HeaderTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */; };
+		38A2FEB12B2EF68C0009A350 /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A2FEB02B2EF68C0009A350 /* MultipartRequest.swift */; };
 		38B2C4722B111B4700720C66 /* IHProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 38B2C4712B111B4700720C66 /* IHProgressHUD */; };
 		38B2C4752B111CA600720C66 /* Extention+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C4742B111CA600720C66 /* Extention+UIColor.swift */; };
 		38BDCDD02B1781EE00AA6CC4 /* Extention+UITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BDCDCF2B1781EE00AA6CC4 /* Extention+UITabBarController.swift */; };
@@ -91,6 +92,7 @@
 		0455AA3F2B0CC05200C86E0A /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTitleCell.swift; sourceTree = "<group>"; };
 		0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTitleCell.xib; sourceTree = "<group>"; };
+		38A2FEB02B2EF68C0009A350 /* MultipartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartRequest.swift; sourceTree = "<group>"; };
 		38B2C4742B111CA600720C66 /* Extention+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIColor.swift"; sourceTree = "<group>"; };
 		38BDCDCF2B1781EE00AA6CC4 /* Extention+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UITabBarController.swift"; sourceTree = "<group>"; };
 		38D291D52B0E4D6300AC5C5A /* APIProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIProtocol.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 			children = (
 				38D291D52B0E4D6300AC5C5A /* APIProtocol.swift */,
 				38D291D62B0E4D6300AC5C5A /* APIService.swift */,
+				38A2FEB02B2EF68C0009A350 /* MultipartRequest.swift */,
 				38D291D72B0E4D6300AC5C5A /* Ext */,
 				38D291D92B0E4D6300AC5C5A /* Enum */,
 			);
@@ -467,6 +470,7 @@
 				0455AA052B0CAF6E00C86E0A /* Utils.swift in Sources */,
 				0455AA0F2B0CAF6E00C86E0A /* API.swift in Sources */,
 				0455AA402B0CC05200C86E0A /* MainCell.swift in Sources */,
+				38A2FEB12B2EF68C0009A350 /* MultipartRequest.swift in Sources */,
 				0455AA0D2B0CAF6E00C86E0A /* UserDefault.swift in Sources */,
 				0455A9B42B0CADE300C86E0A /* ViewController.swift in Sources */,
 				0455AA242B0CB1D800C86E0A /* BaseVc.swift in Sources */,

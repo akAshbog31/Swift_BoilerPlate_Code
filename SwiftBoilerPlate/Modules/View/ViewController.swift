@@ -21,7 +21,11 @@ final class ViewController: BaseVc {
         super.viewDidLoad()
         
         bindViewModel()
-        input.send(.viewDidLoad)
+        queue.after(time: 3) {
+            ImagePickerManager.shared.pickImage(on: self, withOption: [.photos]) { [weak self] image in
+                self?.input.send(.viewDidLoad(imageData: image.jpegData(compressionQuality: 0.5) ?? Data()))
+            }
+        }
     }
     
     override func setUi() {

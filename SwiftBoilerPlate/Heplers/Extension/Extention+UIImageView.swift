@@ -24,8 +24,10 @@ extension UIImageView {
     
     @MainActor
     func setImage(from urlStr: String, placeholderImage: UIImage) throws {
-        Task {
-            try await self.setImage(from: urlStr, placeholderImage: placeholderImage)
+        UIView.transition(with: self, duration: 0.25, options: .transitionCrossDissolve) {
+            Task {
+                try await self.setImage(from: urlStr, placeholderImage: placeholderImage)
+            }
         }
     }
     

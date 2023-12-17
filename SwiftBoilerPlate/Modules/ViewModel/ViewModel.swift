@@ -21,7 +21,7 @@ final class ViewModel: BaseVm {
     
     //MARK: - Enums
     enum Input {
-        case viewDidLoad
+        case viewDidLoad(imageData: Data)
     }
     
     enum Output {
@@ -33,25 +33,26 @@ final class ViewModel: BaseVm {
     func transform(input: AppAnyPublisher<Input>) -> AppAnyPublisher<Output> {
         input.sink { [weak self] event in
             switch event {
-            case .viewDidLoad:
-                self?.sampleApiCallFunc()
+            case .viewDidLoad(let imageData):
+                self?.sampleApiCallFunc(imageData: imageData)
             }
         }.store(in: &disposeBag)
         return output.eraseToAnyPublisher()
     }
     
-    private func sampleApiCallFunc() {
+    private func sampleApiCallFunc(imageData: Data) {
         output.send(.loader(isLoading: true))
         Task {
             do {
-                let model = try await networkService.testAPI()
+                let model = try await networkService.updateProfile(model: UpdateProfilePostModel(name: "Test", profile_image: imageData))
+                print(model.data)
                 output.send(.loader(isLoading: false))
             } catch let error as APIError {
                 output.send(.loader(isLoading: false))
                 output.send(.showError(msg: error.description))
             } catch {
                 output.send(.loader(isLoading: false))
-                output.send(.showError(msg: "Test"))
+                output.send(.showError(msg: error.localizedDescription))
             }
         }.store(in: &taskDisposeBag)
     }
