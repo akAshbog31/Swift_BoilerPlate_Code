@@ -31,19 +31,19 @@ enum Request {
     case jsonEncoding(_ model: [String: Any]?)
     case queryString(_ dict: [String: Any]?)
     case multiPart(_ multiPart: MultipartRequest)
-    case none
+    case requestPlain
     
     var jsonBody: [String: Any]? {
         switch self {
         case .jsonEncoding(let model):
             return model
-        case .queryString, .multiPart, .none: return nil
+        case .queryString, .multiPart, .requestPlain: return nil
         }
     }
     
     var queryItem: [URLQueryItem] {
         switch self {
-        case .jsonEncoding, .multiPart, .none:
+        case .jsonEncoding, .multiPart, .requestPlain:
             return []
         case .queryString(let dict):
             return dict?.asQueryParam ?? []
@@ -52,7 +52,7 @@ enum Request {
     
     var formData: MultipartRequest? {
         switch self {
-        case .jsonEncoding, .queryString, .none: return nil
+        case .jsonEncoding, .queryString, .requestPlain: return nil
         case .multiPart(let multiPart):
             return multiPart
         }
