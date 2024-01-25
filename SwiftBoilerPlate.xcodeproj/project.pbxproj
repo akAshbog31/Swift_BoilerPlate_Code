@@ -43,6 +43,8 @@
 		0455AA412B0CC05200C86E0A /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA3F2B0CC05200C86E0A /* MainCell.xib */; };
 		0455AA442B0CC38A00C86E0A /* HeaderTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */; };
 		0455AA452B0CC38A00C86E0A /* HeaderTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */; };
+		389497B32B62BBE2007D19AA /* Extention+Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389497B22B62BBE2007D19AA /* Extention+Numbers.swift */; };
+		389497B62B62BD5C007D19AA /* Extention+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389497B52B62BD5C007D19AA /* Extention+Bundle.swift */; };
 		38A2FEB12B2EF68C0009A350 /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A2FEB02B2EF68C0009A350 /* MultipartRequest.swift */; };
 		38B2C4722B111B4700720C66 /* IHProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 38B2C4712B111B4700720C66 /* IHProgressHUD */; };
 		38B2C4752B111CA600720C66 /* Extention+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C4742B111CA600720C66 /* Extention+UIColor.swift */; };
@@ -92,6 +94,8 @@
 		0455AA3F2B0CC05200C86E0A /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTitleCell.swift; sourceTree = "<group>"; };
 		0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTitleCell.xib; sourceTree = "<group>"; };
+		389497B22B62BBE2007D19AA /* Extention+Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+Numbers.swift"; sourceTree = "<group>"; };
+		389497B52B62BD5C007D19AA /* Extention+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+Bundle.swift"; sourceTree = "<group>"; };
 		38A2FEB02B2EF68C0009A350 /* MultipartRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipartRequest.swift; sourceTree = "<group>"; };
 		38B2C4742B111CA600720C66 /* Extention+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIColor.swift"; sourceTree = "<group>"; };
 		38BDCDCF2B1781EE00AA6CC4 /* Extention+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UITabBarController.swift"; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 				38B2C4742B111CA600720C66 /* Extention+UIColor.swift */,
 				38F28C662B164F090080BB60 /* Extention+DispatchQueue.swift */,
 				38BDCDCF2B1781EE00AA6CC4 /* Extention+UITabBarController.swift */,
+				389497B22B62BBE2007D19AA /* Extention+Numbers.swift */,
+				389497B52B62BD5C007D19AA /* Extention+Bundle.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 				0455AA022B0CAF6E00C86E0A /* Extention+UITapGestureRecognizer.swift in Sources */,
 				0455AA002B0CAF6E00C86E0A /* Extention+Date.swift in Sources */,
 				0455A9FF2B0CAF6E00C86E0A /* Extention+UIImageView.swift in Sources */,
+				389497B62B62BD5C007D19AA /* Extention+Bundle.swift in Sources */,
 				0455A9FD2B0CAF6E00C86E0A /* Extention+UIviewController.swift in Sources */,
 				0455AA052B0CAF6E00C86E0A /* Utils.swift in Sources */,
 				0455AA0F2B0CAF6E00C86E0A /* API.swift in Sources */,
@@ -489,6 +496,7 @@
 				38D291DE2B0E4D6400AC5C5A /* Enums.swift in Sources */,
 				38BDCDD02B1781EE00AA6CC4 /* Extention+UITabBarController.swift in Sources */,
 				38D291DC2B0E4D6400AC5C5A /* APIService.swift in Sources */,
+				389497B32B62BBE2007D19AA /* Extention+Numbers.swift in Sources */,
 				0455AA362B0CBD5C00C86E0A /* NetworkManager.swift in Sources */,
 				0455AA382B0CBD5C00C86E0A /* ImagePickerManager.swift in Sources */,
 				0455AA3A2B0CC00C00C86E0A /* MainModel.swift in Sources */,

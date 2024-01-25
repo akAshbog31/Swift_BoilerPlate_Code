@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import CommonCrypto
 
 final class Utils {
     static var shared = Utils()

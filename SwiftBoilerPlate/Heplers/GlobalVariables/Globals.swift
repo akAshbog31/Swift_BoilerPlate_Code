@@ -20,17 +20,6 @@ public let queue = DispatchQueue.main
 
 //MARK: - Globals
 enum Globals {
-    //MARK: - Values With Decive Size
-    static func getValueAsPerDeviceWidth(_ newValue: CGFloat) -> CGFloat {
-        let size = CGFloat(newValue) * UIScreen.main.bounds.size.width / 430
-        return size
-    }
-    
-    static func getValueAsPerDeviceHeight(_ newValue: CGFloat) -> CGFloat {
-        let size = CGFloat(newValue) * UIScreen.main.bounds.size.height / 812
-        return size
-    }
-    
     //MARK: - Key Window
     static var keyWindow: UIWindow? {
         return UIApplication.shared.connectedScenes.compactMap { ($0 as? UIWindowScene)?.keyWindow }.last

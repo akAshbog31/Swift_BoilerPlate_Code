@@ -9,6 +9,7 @@ import UIKit
 import IHProgressHUD
 import IQKeyboardManagerSwift
 
+//MARK: - ViewController Transitions
 extension UIViewController {
     func pushVc(vc: UIViewController?, transition type: CATransitionType = .fade, interval: TimeInterval = 0.3) {
         guard let vc = vc else { return }
@@ -28,7 +29,10 @@ extension UIViewController {
         transition.type = type
         self.navigationController?.view.layer.add(transition, forKey: nil)
     }
-    
+}
+
+//MARK: - Hide/Show Huds
+extension UIViewController {
     func showHUD(progressLabel: String = "Loading...", hudColor: UIColor = .label) {
         queue.async {
             IHProgressHUD.set(backgroundColor: .clear)
@@ -37,9 +41,9 @@ extension UIViewController {
             IHProgressHUD.set(defaultAnimationType: .flat)
             IHProgressHUD.set(defaultMaskType: .clear)
             IHProgressHUD.set(foregroundColor: hudColor)
-            IHProgressHUD.set(ringThickness: Globals.getValueAsPerDeviceHeight(4))
-            IHProgressHUD.set(font: .boldSystemFont(ofSize: Globals.getValueAsPerDeviceHeight(17)))
-            IHProgressHUD.set(ringRadius: Globals.getValueAsPerDeviceHeight(20))
+            IHProgressHUD.set(ringThickness: 4.asDeviceHeight)
+            IHProgressHUD.set(font: .boldSystemFont(ofSize: 17.asDeviceHeight))
+            IHProgressHUD.set(ringRadius: 20.asDeviceHeight)
             IHProgressHUD.show(withStatus: progressLabel)
             Globals.keyWindow?.rootViewController?.view.isUserInteractionEnabled = false
         }
@@ -52,7 +56,10 @@ extension UIViewController {
             }
         }
     }
-    
+}
+
+//MARK: - Show Alerts
+extension UIViewController {
     func showAlertWithTitle(title: String = "App", msg: String, options: String..., btnStyle: UIAlertAction.Style..., completion: @escaping ((Int) -> ())) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         for (index, option) in options.enumerated() {
@@ -95,7 +102,10 @@ extension UIViewController {
         alert.addAction(btnCancel)
         self.present(alert, animated: true, completion: nil)
     }
-    
+}
+
+//MARK: - Check Notification Status
+extension UIViewController {
     func checkNotificationsAuthorizationStatus(complition: @escaping (Bool) -> ()) {
         let userNotificationCenter = UNUserNotificationCenter.current()
         userNotificationCenter.getNotificationSettings { (notificationSettings) in
