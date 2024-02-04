@@ -11,7 +11,7 @@ Key Features:
 
 - Swift Extensions: Boost productivity with a collection of Swift extensions covering common tasks and utilities, providing clean and concise code.
 
-- SDWebImage Integration: Streamline image loading and caching with SDWebImage, enhancing the performance of your app's image handling.
+- KingFisher Integration: Streamline image loading and caching with KingFisher, enhancing the performance of your app's image handling.
 
 - R.swift Integration: Leverage type-safe resource access with R.swift, ensuring that your assets, strings, and other resources are seamlessly integrated into your codebase.
 
