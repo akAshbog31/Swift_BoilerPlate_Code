@@ -7,10 +7,10 @@
 
 import Foundation
 
-final class ViewModel: BaseVm {
+final class ViewModel {
     //MARK: - Properties
-    var disposeBag = Bag()
-    var taskDisposeBag = TaskBag()
+    var bag = Bag()
+    var taskBag = TaskBag()
     var networkService: NetworkService
     var output = AppSubject<Output>()
     
@@ -36,7 +36,7 @@ final class ViewModel: BaseVm {
             case .viewDidLoad(let imageData):
                 self?.sampleApiCallFunc(imageData: imageData)
             }
-        }.store(in: &disposeBag)
+        }.store(in: &bag)
         return output.eraseToAnyPublisher()
     }
     
@@ -54,7 +54,7 @@ final class ViewModel: BaseVm {
                 output.send(.loader(isLoading: false))
                 output.send(.showError(msg: error.localizedDescription))
             }
-        }.store(in: &taskDisposeBag)
+        }.store(in: &taskBag)
     }
 }
 

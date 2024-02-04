@@ -32,7 +32,6 @@
 		0455AA172B0CB10200C86E0A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA162B0CB10200C86E0A /* IQKeyboardManagerSwift */; };
 		0455AA1D2B0CB12300C86E0A /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA1C2B0CB12300C86E0A /* RswiftLibrary */; };
 		0455AA242B0CB1D800C86E0A /* BaseVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA232B0CB1D800C86E0A /* BaseVc.swift */; };
-		0455AA2E2B0CBD3800C86E0A /* BaseVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA2C2B0CBD3800C86E0A /* BaseVm.swift */; };
 		0455AA362B0CBD5C00C86E0A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA322B0CBD5B00C86E0A /* NetworkManager.swift */; };
 		0455AA372B0CBD5C00C86E0A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA332B0CBD5B00C86E0A /* NetworkService.swift */; };
 		0455AA382B0CBD5C00C86E0A /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA352B0CBD5C00C86E0A /* ImagePickerManager.swift */; };
@@ -84,7 +83,6 @@
 		0455A9F52B0CAF6E00C86E0A /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		0455A9F72B0CAF6E00C86E0A /* AppLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppLayout.swift; sourceTree = "<group>"; };
 		0455AA232B0CB1D800C86E0A /* BaseVc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVc.swift; sourceTree = "<group>"; };
-		0455AA2C2B0CBD3800C86E0A /* BaseVm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVm.swift; sourceTree = "<group>"; };
 		0455AA322B0CBD5B00C86E0A /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		0455AA332B0CBD5B00C86E0A /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0455AA352B0CBD5C00C86E0A /* ImagePickerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 		0455AA2A2B0CBD3800C86E0A /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0455AA2C2B0CBD3800C86E0A /* BaseVm.swift */,
 				38D291DF2B0E4F0000AC5C5A /* ViewModel.swift */,
 			);
 			path = ViewModel;
@@ -480,7 +477,6 @@
 				0455AA242B0CB1D800C86E0A /* BaseVc.swift in Sources */,
 				38D291DB2B0E4D6400AC5C5A /* APIProtocol.swift in Sources */,
 				0455AA042B0CAF6E00C86E0A /* Extention+Uilable.swift in Sources */,
-				0455AA2E2B0CBD3800C86E0A /* BaseVm.swift in Sources */,
 				0455AA0E2B0CAF6E00C86E0A /* Globals.swift in Sources */,
 				38F28C672B164F090080BB60 /* Extention+DispatchQueue.swift in Sources */,
 				0455AA442B0CC38A00C86E0A /* HeaderTitleCell.swift in Sources */,
