@@ -8,6 +8,7 @@
 import UIKit
 import IHProgressHUD
 import IQKeyboardManagerSwift
+import Kingfisher
 
 //MARK: - ViewController Transitions
 extension UIViewController {
@@ -60,7 +61,7 @@ extension UIViewController {
 
 //MARK: - Show Alerts
 extension UIViewController {
-    func showAlertWithTitle(title: String = "App", msg: String, options: String..., btnStyle: UIAlertAction.Style..., completion: @escaping ((Int) -> ())) {
+    func showAlertWithTitle(title: String = Bundle.main.appName, msg: String, options: String..., btnStyle: UIAlertAction.Style..., completion: @escaping ((Int) -> ())) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         for (index, option) in options.enumerated() {
             alert.addAction(UIAlertAction.init(title: option, style: btnStyle[index], handler: { (action) in
@@ -80,7 +81,7 @@ extension UIViewController {
         rootViewController?.present(alert, animated: true, completion: nil)
     }
     
-    func showAlert(title: String = "App", msg: String, buttonText: String? = "OK") {
+    func showAlert(title: String = Bundle.main.appName, msg: String, buttonText: String? = "OK") {
         self.showAlertWithTitle(title: title,msg: msg, options: buttonText ?? "OK", btnStyle: .default, completion: { option in
             switch option {
             case 0: break
@@ -113,6 +114,21 @@ extension UIViewController {
                 complition(true)
             } else {
                 complition(false)
+            }
+        }
+    }
+}
+
+//MARK: - Kingfisher
+extension UIViewController {
+    func retriveImages(from urlStr: String, complition: @escaping (UIImage) -> Void) {
+        guard let url = URL(string: urlStr) else { return }
+        KingfisherManager.shared.retrieveImage(with: url) { result in
+            switch result {
+            case .success(let `value`):
+                complition(value.image)
+            case .failure(let error):
+                self.showAlert(msg: error.localizedDescription)
             }
         }
     }

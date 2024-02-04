@@ -31,8 +31,6 @@
 		0455AA102B0CAF6E00C86E0A /* AppLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455A9F72B0CAF6E00C86E0A /* AppLayout.swift */; };
 		0455AA172B0CB10200C86E0A /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA162B0CB10200C86E0A /* IQKeyboardManagerSwift */; };
 		0455AA1D2B0CB12300C86E0A /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA1C2B0CB12300C86E0A /* RswiftLibrary */; };
-		0455AA1F2B0CB12300C86E0A /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA1E2B0CB12300C86E0A /* rswift */; };
-		0455AA222B0CB13900C86E0A /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0455AA212B0CB13900C86E0A /* SDWebImage */; };
 		0455AA242B0CB1D800C86E0A /* BaseVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA232B0CB1D800C86E0A /* BaseVc.swift */; };
 		0455AA2E2B0CBD3800C86E0A /* BaseVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA2C2B0CBD3800C86E0A /* BaseVm.swift */; };
 		0455AA362B0CBD5C00C86E0A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA322B0CBD5B00C86E0A /* NetworkManager.swift */; };
@@ -43,6 +41,7 @@
 		0455AA412B0CC05200C86E0A /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA3F2B0CC05200C86E0A /* MainCell.xib */; };
 		0455AA442B0CC38A00C86E0A /* HeaderTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */; };
 		0455AA452B0CC38A00C86E0A /* HeaderTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */; };
+		3869BA7D2B6F565400A7430B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3869BA7C2B6F565400A7430B /* Kingfisher */; };
 		389497B32B62BBE2007D19AA /* Extention+Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389497B22B62BBE2007D19AA /* Extention+Numbers.swift */; };
 		389497B62B62BD5C007D19AA /* Extention+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389497B52B62BD5C007D19AA /* Extention+Bundle.swift */; };
 		38A2FEB12B2EF68C0009A350 /* MultipartRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A2FEB02B2EF68C0009A350 /* MultipartRequest.swift */; };
@@ -114,11 +113,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0455AA1F2B0CB12300C86E0A /* rswift in Frameworks */,
 				0455AA172B0CB10200C86E0A /* IQKeyboardManagerSwift in Frameworks */,
 				0455AA1D2B0CB12300C86E0A /* RswiftLibrary in Frameworks */,
 				38B2C4722B111B4700720C66 /* IHProgressHUD in Frameworks */,
-				0455AA222B0CB13900C86E0A /* SDWebImage in Frameworks */,
+				3869BA7D2B6F565400A7430B /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,9 +396,8 @@
 			packageProductDependencies = (
 				0455AA162B0CB10200C86E0A /* IQKeyboardManagerSwift */,
 				0455AA1C2B0CB12300C86E0A /* RswiftLibrary */,
-				0455AA1E2B0CB12300C86E0A /* rswift */,
-				0455AA212B0CB13900C86E0A /* SDWebImage */,
 				38B2C4712B111B4700720C66 /* IHProgressHUD */,
+				3869BA7C2B6F565400A7430B /* Kingfisher */,
 			);
 			productName = BoilerPlate;
 			productReference = 0455A9AC2B0CADE300C86E0A /* SwiftBoilerPlate.app */;
@@ -433,8 +430,8 @@
 			packageReferences = (
 				0455AA152B0CB10200C86E0A /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				0455AA1B2B0CB12300C86E0A /* XCRemoteSwiftPackageReference "R.swift" */,
-				0455AA202B0CB13900C86E0A /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				38B2C4702B111B4700720C66 /* XCRemoteSwiftPackageReference "IHProgressHUD" */,
+				3869BA7B2B6F565400A7430B /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 0455A9AD2B0CADE300C86E0A /* Products */;
 			projectDirPath = "";
@@ -658,13 +655,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35H6Y7PRN7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftBoilerPlate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -672,9 +670,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.BoilerPlate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -685,13 +686,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 35H6Y7PRN7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SwiftBoilerPlate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -699,9 +701,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.app.BoilerPlate;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -745,12 +750,12 @@
 				minimumVersion = 7.0.0;
 			};
 		};
-		0455AA202B0CB13900C86E0A /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+		3869BA7B2B6F565400A7430B /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 7.10.2;
 			};
 		};
 		38B2C4702B111B4700720C66 /* XCRemoteSwiftPackageReference "IHProgressHUD" */ = {
@@ -774,19 +779,14 @@
 			package = 0455AA1B2B0CB12300C86E0A /* XCRemoteSwiftPackageReference "R.swift" */;
 			productName = RswiftLibrary;
 		};
-		0455AA1E2B0CB12300C86E0A /* rswift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0455AA1B2B0CB12300C86E0A /* XCRemoteSwiftPackageReference "R.swift" */;
-			productName = rswift;
-		};
-		0455AA212B0CB13900C86E0A /* SDWebImage */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0455AA202B0CB13900C86E0A /* XCRemoteSwiftPackageReference "SDWebImage" */;
-			productName = SDWebImage;
-		};
 		0455AA252B0CBAFE00C86E0A /* RswiftGenerateInternalResources */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = "plugin:RswiftGenerateInternalResources";
+		};
+		3869BA7C2B6F565400A7430B /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3869BA7B2B6F565400A7430B /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		38B2C4712B111B4700720C66 /* IHProgressHUD */ = {
 			isa = XCSwiftPackageProductDependency;

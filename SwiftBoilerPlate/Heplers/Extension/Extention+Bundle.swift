@@ -8,6 +8,10 @@
 import Foundation
 
 extension Bundle {
+    var appName: String {
+        return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "App-Name"
+    }
+    
     func decode<T: Codable>(_ file: String) -> T {
         guard let url = self.url(forResource: file, withExtension: nil) else {
             fatalError("Failed to locate \(file) in bundle")

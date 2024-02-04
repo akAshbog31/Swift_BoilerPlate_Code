@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -56,10 +56,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4IB-SV-HF1" secondAttribute="trailing" id="7a7-dI-NTA"/>
+                            <constraint firstItem="tZH-qG-iMB" firstAttribute="top" secondItem="4IB-SV-HF1" secondAttribute="bottom" id="ARQ-3P-n14"/>
                             <constraint firstItem="4IB-SV-HF1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="EsO-hv-uNe"/>
                             <constraint firstItem="4IB-SV-HF1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LBk-yR-BWT"/>
                             <constraint firstAttribute="bottom" secondItem="tZH-qG-iMB" secondAttribute="bottom" id="Vx7-Ws-7Sb"/>
-                            <constraint firstItem="tZH-qG-iMB" firstAttribute="top" secondItem="4IB-SV-HF1" secondAttribute="bottom" id="YgU-bV-epW"/>
                             <constraint firstItem="4IB-SV-HF1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="60:812" id="ZoR-Xw-I40"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tZH-qG-iMB" secondAttribute="trailing" id="mNh-aM-wfN"/>
                             <constraint firstItem="tZH-qG-iMB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pdd-cw-YT5"/>

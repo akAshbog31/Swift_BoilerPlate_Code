@@ -6,27 +6,27 @@
 //
 
 import UIKit
-import SDWebImage
+import Kingfisher
 
 extension UIImageView {
-    @discardableResult
-    func setImage(from urlStr: String, placeholderImage: UIImage) async throws -> UIImage? {
-        return try await withCheckedThrowingContinuation { continuation in
-            guard let url = URL(string: urlStr) else { continuation.resume(throwing: AppError.inValidURL); return }
-            self.sd_setImage(with: url, placeholderImage: placeholderImage) { img, error, _, _ in
-                if let error = error {
-                    continuation.resume(throwing: error)
-                }
-                continuation.resume(returning: img)
-            }
-        }
-    }
-    
-    @MainActor
-    func setImage(from urlStr: String, placeholderImage: UIImage) throws {
-        UIView.transition(with: self, duration: 0.25, options: .transitionCrossDissolve) {
-            Task {
-                try await self.setImage(from: urlStr, placeholderImage: placeholderImage)
+    func setImage(from urlStr: String, placeholderImage: UIImage = UIImage(), complition: ((UIImage) -> Void)? = nil) {
+        guard let url = URL(string: urlStr) else { return }
+        self.kf.indicatorType = .activity
+        self.kf.setImage(
+            with: url,
+            placeholder: placeholderImage,
+            options: [
+                .transition(.fade(1)),
+                .processor(DefaultImageProcessor()),
+                .cacheOriginalImage,
+                .scaleFactor(UIScreen.main.scale)
+            ]
+        ) { result in
+            switch result {
+            case .success(let `value`):
+                complition?(value.image)
+            case .failure(let error):
+                print(error.localizedDescription)
             }
         }
     }
@@ -39,7 +39,7 @@ extension UIImageView {
         addSubview(blurEffectView)
         clipsToBounds = true
     }
-
+    
     func blurred(withStyle style: UIBlurEffect.Style = .light) -> UIImageView {
         let imgView = self
         imgView.blur(withStyle: style)
