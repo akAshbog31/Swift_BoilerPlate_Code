@@ -8,17 +8,14 @@
 import UIKit
 
 final class HeaderTitleCell: UICollectionViewCell {
-    //MARK: - @IBOutlet
+    // MARK: - @IBOutlet
     @IBOutlet weak var lblTitle: UILabel!
-    
-    //MARK: - Properties
-    
-    //MARK: - LifeCycle
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
-    //MARK: - @IBAction
-    
-    //MARK: - Functions
+
+    // MARK: - Properties
+
+    // MARK: - LifeCycle
+
+    // MARK: - @IBAction
+
+    // MARK: - Functions
 }

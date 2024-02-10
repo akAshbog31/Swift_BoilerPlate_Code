@@ -8,18 +8,18 @@
 import UIKit
 
 final class ViewController: BaseVc {
-    //MARK: - @IBOutlets
+    // MARK: - @IBOutlets
     @IBOutlet weak var clvMain: UICollectionView!
-    
-    //MARK: - Properties
+
+    // MARK: - Properties
     private var viewModel = ViewModel()
     private var disposeBag = Bag()
     private var input = AppSubject<ViewModel.Input>()
-    
-    //MARK: - Life-Cycle
+
+    // MARK: - Life-Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         bindViewModel()
         queue.after(time: 3) {
             ImagePickerManager.shared.pickImage(on: self, withOption: [.photos]) { [weak self] image in
@@ -27,19 +27,19 @@ final class ViewController: BaseVc {
             }
         }
     }
-    
+
     override func setUi() {
         super.setUi()
-        
+
         clvMain.delegate = self
         clvMain.dataSource = self
         clvMain.register(R.nib.headerTitleCell, forSupplementaryViewOfKind: "Header")
         clvMain.register(R.nib.mainCell)
         configureCollectionView()
     }
-    //MARK: - @IBActions
-    
-    //MARK: - Functions
+    // MARK: - @IBActions
+
+    // MARK: - Functions
     private func bindViewModel() {
         viewModel.transform(input: input.eraseToAnyPublisher()).sink { [weak self] event in
             switch event {
@@ -50,12 +50,12 @@ final class ViewController: BaseVc {
             }
         }.store(in: &disposeBag)
     }
-    
+
     private func configureCollectionView() {
-        let layout = UICollectionViewCompositionalLayout { sectionIndex, enviroment in
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, _ in
             switch sectionIndex {
-            case 0 : return AppLayout.shared.appSection()
-            case 1 : return AppLayout.shared.appSection()
+            case 0: return AppLayout.shared.appSection()
+            case 1: return AppLayout.shared.appSection()
             default: return AppLayout.shared.appSection()
             }
         }
@@ -63,12 +63,12 @@ final class ViewController: BaseVc {
     }
 }
 
-//MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0: return 3
@@ -76,8 +76,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         default: return 1
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch indexPath.section {
         case 0:
             let cell: MainCell = collectionView.deque(indexPath: indexPath)
@@ -90,17 +91,21 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
             return cell
         }
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         showHUD()
         queue.after(time: 4) {
             self.hideHUD()
         }
     }
-    
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == "Header" {
-            guard let header = clvMain.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: R.nib.headerTitleCell, for: indexPath) else { return .init() }
+            guard let header = clvMain.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                        withReuseIdentifier: R.nib.headerTitleCell,
+                                                                        for: indexPath) else { return .init() }
             switch indexPath.section {
             case 0:
                 header.lblTitle.text = "Top Relationship"

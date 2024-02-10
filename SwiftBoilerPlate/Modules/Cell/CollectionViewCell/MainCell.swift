@@ -8,21 +8,21 @@
 import UIKit
 
 final class MainCell: UICollectionViewCell {
-    //MARK: - @IBOutlet
+    // MARK: - @IBOutlet
     @IBOutlet weak var viewBg: UIView!
-    
-    //MARK: - Properties
-    
-    //MARK: - LifeCycle
+
+    // MARK: - Properties
+
+    // MARK: - LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         setUI()
     }
-    
-    //MARK: - @IBAction
-    
-    //MARK: - Functions
+
+    // MARK: - @IBAction
+
+    // MARK: - Functions
     private func setUI() {
         viewBg.backgroundColor = .random
     }

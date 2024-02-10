@@ -8,7 +8,7 @@
 import UIKit
 
 extension UITabBarController {
-    public func addTransition(to viewController: UIViewController, 
+    public func addTransition(to viewController: UIViewController,
                               time interval: TimeInterval = 0.35,
                               animation options: UIView.AnimationOptions = [.transitionCrossDissolve]) {
         guard let fromView = selectedViewController?.view, let toView = viewController.view else { return }

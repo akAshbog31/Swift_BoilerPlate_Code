@@ -11,12 +11,12 @@ import Foundation
 struct UserDefault<Value> {
     var key: String
     var defaultValue: Value
-    
+
     var wrappedValue: Value {
         get {
             UserDefaults.standard.object(forKey: self.key) as? Value ?? defaultValue
         }
-        
+
         set {
             UserDefaults.standard.setValue(newValue, forKey: self.key)
         }
@@ -26,11 +26,11 @@ struct UserDefault<Value> {
         self.key = key
         self.defaultValue = defaultValue
     }
-    
+
     var projectedValue: Self {
         return self
     }
-    
+
     func removeObject() {
         UserDefaults.standard.removeObject(forKey: self.key)
     }
@@ -67,16 +67,16 @@ struct UserDefaultEncoded<T: Codable> {
             UserDefaults.standard.set(jsonString, forKey: key)
         }
     }
-    
+
     var projectedValue: Self {
         return self
     }
-    
+
     func removeObject() {
         UserDefaults.standard.removeObject(forKey: key)
     }
 }
 
 enum UserDefaultType {
-    
+
 }

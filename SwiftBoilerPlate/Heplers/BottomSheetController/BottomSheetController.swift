@@ -161,8 +161,7 @@ public class BottomSheetController: UIViewController {
                 animations: {
                     self.background.alpha = 1.0
                     self.view.layoutIfNeeded()
-                }
-            ) { _ in }
+                })
         } else {
             background.alpha = 1.0
             position.constant = 0
@@ -170,7 +169,7 @@ public class BottomSheetController: UIViewController {
         }
     }
 
-    private func closeSheet(animated: Bool, completion: ((Bool) -> ())? = nil) {
+    private func closeSheet(animated: Bool, completion: ((Bool) -> Void)? = nil) {
         if animated {
             position.constant = -sheetHeight
             UIView.animate(

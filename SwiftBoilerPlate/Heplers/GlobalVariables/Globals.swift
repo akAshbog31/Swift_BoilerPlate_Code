@@ -9,24 +9,24 @@ import Foundation
 import UIKit
 import Combine
 
-//MARK: - TypeAlice
+// MARK: - TypeAlice
 typealias TaskBag = Set<TaskCancellables>
 typealias Bag = Set<AnyCancellable>
 typealias AppSubject<T> = PassthroughSubject<T, Never>
 typealias AppAnyPublisher<T> = AnyPublisher<T, Never>
 
-//MARK: - Public Valriable
+// MARK: - Public Valriable
 public let queue = DispatchQueue.main
 
-//MARK: - Globals
+// MARK: - Globals
 enum Globals {
-    //MARK: - Key Window
+    // MARK: - Key Window
     static var keyWindow: UIWindow? {
         return UIApplication.shared.connectedScenes.compactMap { ($0 as? UIWindowScene)?.keyWindow }.last
     }
 }
 
-//MARK: - ValidationError
+// MARK: - ValidationError
 enum ValidationError: Error {
     case empty(type: String)
     case inValidEmailOrPhonenumber
@@ -52,7 +52,7 @@ extension ValidationError: CustomStringConvertible {
     }
 }
 
-//MARK: - AppError
+// MARK: - AppError
 enum AppError: Error {
     case inValidURL
 }

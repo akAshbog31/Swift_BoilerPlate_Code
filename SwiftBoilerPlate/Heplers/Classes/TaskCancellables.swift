@@ -11,18 +11,18 @@ class TaskCancellables: Hashable {
     static func == (lhs: TaskCancellables, rhs: TaskCancellables) -> Bool {
         lhs.id == rhs.id
     }
-    
+
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
-    
+
     private var id: UUID = UUID()
     private var task: Task<Void, Never>
-    
+
     init(task: Task<Void, Never>) {
         self.task = task
     }
-    
+
     deinit {
         self.task.cancel()
     }

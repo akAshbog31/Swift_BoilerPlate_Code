@@ -13,16 +13,16 @@ extension UITapGestureRecognizer {
         let layoutManager = NSLayoutManager()
         let textContainer = NSTextContainer(size: CGSize.zero)
         let textStorage = NSTextStorage(attributedString: label.attributedText!)
-        
+
         layoutManager.addTextContainer(textContainer)
         textStorage.addLayoutManager(layoutManager)
-        
+
         textContainer.lineFragmentPadding = 0.0
         textContainer.lineBreakMode = label.lineBreakMode
         textContainer.maximumNumberOfLines = label.numberOfLines
         let labelSize = label.bounds.size
         textContainer.size = labelSize
-        
+
         let locationOfTouchInLabel = self.location(in: label)
         let textBoundingBox = layoutManager.usedRect(for: textContainer)
         let textContainerOffset = CGPoint(
@@ -33,8 +33,10 @@ extension UITapGestureRecognizer {
             x: locationOfTouchInLabel.x - textContainerOffset.x,
             y: locationOfTouchInLabel.y - textContainerOffset.y
         )
-        let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer, in: textContainer, fractionOfDistanceBetweenInsertionPoints: nil)
-        
+        let indexOfCharacter = layoutManager.characterIndex(for: locationOfTouchInTextContainer,
+                                                            in: textContainer,
+                                                            fractionOfDistanceBetweenInsertionPoints: nil)
+
         return NSLocationInRange(indexOfCharacter, targetRange)
     }
 }

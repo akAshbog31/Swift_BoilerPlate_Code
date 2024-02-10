@@ -140,7 +140,7 @@ public extension UIView {
         }
     }
 
-    var x: CGFloat {
+    var xPosition: CGFloat {
         get {
             return frame.origin.x
         }
@@ -149,7 +149,7 @@ public extension UIView {
         }
     }
 
-    var y: CGFloat {
+    var yPosition: CGFloat {
         get {
             return frame.origin.y
         }
@@ -246,17 +246,22 @@ extension UIView {
         gradientLayer.endPoint = direction.endPoint
         layer.addSublayer(gradientLayer)
     }
-    
-    func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+
+    func addShadow(ofColor color: UIColor = .gray,
+                   radius: CGFloat = 3,
+                   offset: CGSize = .zero,
+                   opacity: Float = 0.5) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
         layer.shadowOpacity = opacity
         layer.masksToBounds = false
     }
-    
+
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let path = UIBezierPath(roundedRect: self.bounds,
+                                byRoundingCorners: corners,
+                                cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
         self.layer.mask = mask
@@ -267,7 +272,7 @@ extension UIView {
     func superview<T>(of type: T.Type) -> T? {
         return superview as? T ?? superview.map { $0.superview(of: type)! }
     }
-    
+
     func subview<T>(of type: T.Type) -> T? {
         return subviews.compactMap { $0 as? T ?? $0.subview(of: type) }.first
     }

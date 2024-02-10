@@ -32,7 +32,7 @@ enum Request {
     case queryString(_ dict: [String: Any]?)
     case multiPart(_ multiPart: MultipartRequest)
     case requestPlain
-    
+
     var jsonBody: [String: Any]? {
         switch self {
         case .jsonEncoding(let model):
@@ -40,7 +40,7 @@ enum Request {
         case .queryString, .multiPart, .requestPlain: return nil
         }
     }
-    
+
     var queryItem: [URLQueryItem] {
         switch self {
         case .jsonEncoding, .multiPart, .requestPlain:
@@ -49,7 +49,7 @@ enum Request {
             return dict?.asQueryParam ?? []
         }
     }
-    
+
     var formData: MultipartRequest? {
         switch self {
         case .jsonEncoding, .queryString, .requestPlain: return nil

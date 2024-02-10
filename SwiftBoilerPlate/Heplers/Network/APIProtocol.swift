@@ -13,13 +13,14 @@ protocol APIProtocol {
     var path: String { get }
     var task: Request { get }
     var header: [String: String] { get }
-    
+
     func asURLRequest() throws -> URLRequest
 }
 
 extension APIProtocol {
     func asURLRequest() throws -> URLRequest {
-        guard var urlBuilder = URLComponents(string: baseURL + path) else { throw APIError.invalidURL(urlStr: baseURL + path) }
+        guard var urlBuilder = URLComponents(string: baseURL + path)
+        else { throw APIError.invalidURL(urlStr: baseURL + path) }
         if !task.queryItem.isEmpty {
             urlBuilder.queryItems = task.queryItem
             urlBuilder.percentEncodedQuery = urlBuilder.percentEncodedQuery?.replacingOccurrences(of: "+", with: "%2B")

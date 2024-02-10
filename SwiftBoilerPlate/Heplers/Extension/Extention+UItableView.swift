@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 extension UITableView {
-    func deque<cell : UITableViewCell>() -> cell {
-        let identifier = String(describing: cell.self)
-        guard let cell = self.dequeueReusableCell(withIdentifier: identifier) as? cell
+    func deque<Cell: UITableViewCell>() -> Cell {
+        let identifier = String(describing: Cell.self)
+        guard let cell = self.dequeueReusableCell(withIdentifier: identifier) as? Cell
             else {fatalError("=====>Error in cell") }
         return cell
     }
-    
+
     func reload() {
         UIView.transition(with: self, duration: 0.35, options: .transitionCrossDissolve) {
             queue.async {

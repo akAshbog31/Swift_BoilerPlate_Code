@@ -17,38 +17,41 @@ extension String {
     }
 }
 
-//MARK: - Validations
+// MARK: - Validations
 extension String {
-    //MARK: - isBlank
+    // MARK: - isBlank
     var isBlank: Bool {
-        get {
-            let trimmed = trimmingCharacters(in: CharacterSet.whitespaces)
-            return trimmed.isEmpty
-        }
+        return trimmingCharacters(in: CharacterSet.whitespaces).isEmpty
     }
-    
-    //MARK: - isEmail
+
+    // MARK: - isEmail
     var isEmail: Bool {
         do {
-            let regex = try NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}", options: .caseInsensitive)
-            return regex.firstMatch(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count)) != nil
+            let regex = try NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}",
+                                                options: .caseInsensitive)
+            return regex.firstMatch(in: self,
+                                    options: NSRegularExpression.MatchingOptions(rawValue: 0),
+                                    range: NSRange(location: 0, length: self.count)) != nil
         } catch {
             return false
         }
     }
-    
-    //MARK: - isPhoneNumber
+
+    // MARK: - isPhoneNumber
     var isPhoneNumber: Bool {
         let types: NSTextCheckingResult.CheckingType = [.phoneNumber]
         guard let detector = try? NSDataDetector(types: types.rawValue) else { return false }
-        if let match = detector.matches(in: self, options: [], range: NSMakeRange(0, self.count)).first?.phoneNumber {
+        if let match = detector
+            .matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
+            .first?
+            .phoneNumber {
             return match == self
         } else {
             return false
         }
     }
-    
-    //MARK: - isValidPassword
+
+    // MARK: - isValidPassword
     var isValidPassword: Bool {
         if self.count < 8 {
             return false

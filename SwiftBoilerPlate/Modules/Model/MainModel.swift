@@ -7,7 +7,7 @@
 
 import Foundation
 
-//MARK: - GenralResponseModel
+// MARK: - GenralResponseModel
 struct GenralResponseModel<T: Codable>: Codable {
     let success: Bool?
     let message: String?
@@ -17,21 +17,42 @@ struct GenralResponseModel<T: Codable>: Codable {
 // MARK: - UpdateProfilePostModel
 struct UpdateProfilePostModel: Codable {
     let name: String?
-    var notes: String? = nil
-    var date_of_birth: String? = nil
-    let profile_image: Data?
+    var notes: String? = ""
+    var dateOfBirth: String? = ""
+    let profileImage: Data?
+
+    enum CodingKeys: String, CodingKey {
+        case name, notes
+        case dateOfBirth = "date_of_birth"
+        case profileImage = "profile_image"
+    }
 }
 
 // MARK: - User
 struct User: Codable {
-    let profile_image: String?
+    let profileImage: String?
     let id: Int?
     let name: String?
-    let country_code: String?
-    let phone_number: Int?
+    let countryCode: String?
+    let phoneNumber: Int?
     let email: String?
-    let social_id, social_provider, password, notes, date_of_birth, createdAt: String?
-    let is_active: Bool?
+    let socialId, socialProvider, password, notes, dateOfBirth, createdAt: String?
+    let isActive: Bool?
     let updatedAt: String?
     let deletedAt: String?
+
+    enum CodingKeys: String, CodingKey {
+        case profileImage = "profile_image"
+        case id, name
+        case countryCode = "country_code"
+        case phoneNumber = "phone_number"
+        case email
+        case socialId = "social_id"
+        case socialProvider = "social_provider"
+        case password, notes
+        case dateOfBirth = "date_of_birth"
+        case createdAt
+        case isActive = "is_active"
+        case updatedAt, deletedAt
+    }
 }
