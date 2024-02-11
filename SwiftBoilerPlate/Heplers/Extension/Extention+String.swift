@@ -8,9 +8,9 @@
 import UIKit
 
 extension String {
-    func toDate(_ format: String) -> Date {
+    func toDate(_ format: DateFormatType) -> Date {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = format
+        dateFormatter.dateFormat = format.rawValue
         dateFormatter.timeZone = TimeZone.current
         dateFormatter.locale = Locale.current
         return dateFormatter.date(from: self) ?? Date()
