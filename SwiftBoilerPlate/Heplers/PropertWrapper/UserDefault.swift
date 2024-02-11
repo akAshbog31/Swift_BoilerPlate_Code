@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - UserDefault
 @propertyWrapper
 struct UserDefault<Value> {
     var key: String
@@ -14,11 +15,11 @@ struct UserDefault<Value> {
 
     var wrappedValue: Value {
         get {
-            UserDefaults.standard.object(forKey: self.key) as? Value ?? defaultValue
+            UserDefaults.standard.object(forKey: key) as? Value ?? defaultValue
         }
 
         set {
-            UserDefaults.standard.setValue(newValue, forKey: self.key)
+            UserDefaults.standard.setValue(newValue, forKey: key)
         }
     }
 
@@ -28,14 +29,15 @@ struct UserDefault<Value> {
     }
 
     var projectedValue: Self {
-        return self
+        self
     }
 
     func removeObject() {
-        UserDefaults.standard.removeObject(forKey: self.key)
+        UserDefaults.standard.removeObject(forKey: key)
     }
 }
 
+// MARK: - UserDefaultEncoded
 @propertyWrapper
 struct UserDefaultEncoded<T: Codable> {
     let key: String
@@ -62,14 +64,16 @@ struct UserDefaultEncoded<T: Codable> {
         set {
             let encoder = JSONEncoder()
             encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-            guard let jsonData = try? encoder.encode(newValue) else { return }
+            guard let jsonData = try? encoder.encode(newValue) else {
+                return
+            }
             let jsonString = String(bytes: jsonData, encoding: .utf8)
             UserDefaults.standard.set(jsonString, forKey: key)
         }
     }
 
     var projectedValue: Self {
-        return self
+        self
     }
 
     func removeObject() {
@@ -77,6 +81,5 @@ struct UserDefaultEncoded<T: Codable> {
     }
 }
 
-enum UserDefaultType {
-
-}
+// MARK: - UserDefaultType
+enum UserDefaultType {}

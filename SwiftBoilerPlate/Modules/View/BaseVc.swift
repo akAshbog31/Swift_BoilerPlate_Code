@@ -23,6 +23,6 @@ class BaseVc: UIViewController {
 
     // MARK: - Functions
     func setUi() {
-        self.navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = true
     }
 }

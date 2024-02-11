@@ -7,13 +7,15 @@
 
 import Foundation
 
+// MARK: - API
 enum API {
     case updateProfile(model: UpdateProfilePostModel)
 }
 
+// MARK: - APIProtocol
 extension API: APIProtocol {
     var baseURL: String {
-        return "http://35.154.65.40:3030/api/v1/"
+        "http://35.154.65.40:3030/api/v1/"
     }
 
     var path: String {
@@ -32,7 +34,7 @@ extension API: APIProtocol {
 
     var task: Request {
         switch self {
-        case .updateProfile(let model):
+        case let .updateProfile(model):
             var mutliPartFormData = MultipartRequest()
             mutliPartFormData.add(key: "name", value: model.name ?? "")
             mutliPartFormData.add(key: "date_of_birth", value: model.dateOfBirth ?? "")

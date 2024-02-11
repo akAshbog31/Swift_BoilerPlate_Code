@@ -16,7 +16,7 @@ public struct MultipartRequest {
     // MARK: - Life cycle
     public init(boundary: String = UUID().uuidString) {
         self.boundary = boundary
-        self.data = .init()
+        data = .init()
     }
 
     // MARK: - Functions

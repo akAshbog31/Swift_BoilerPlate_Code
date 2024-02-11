@@ -9,7 +9,7 @@ import UIKit
 
 final class HeaderTitleCell: UICollectionViewCell {
     // MARK: - @IBOutlet
-    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet var lblTitle: UILabel!
 
     // MARK: - Properties
 

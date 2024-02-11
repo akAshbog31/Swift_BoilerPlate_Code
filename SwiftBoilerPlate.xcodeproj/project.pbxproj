@@ -380,10 +380,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0455A9C02B0CADE500C86E0A /* Build configuration list for PBXNativeTarget "SwiftBoilerPlate" */;
 			buildPhases = (
+				383FDB2A2B77521D0020DAE1 /* SwiftLint */,
 				0455A9A82B0CADE300C86E0A /* Sources */,
 				0455A9A92B0CADE300C86E0A /* Frameworks */,
 				0455A9AA2B0CADE300C86E0A /* Resources */,
-				383FDB2A2B77521D0020DAE1 /* SwiftLint */,
+				388DF4EB2B787BD4007F1B25 /* SwiftFormat */,
 			);
 			buildRules = (
 			);
@@ -475,6 +476,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		388DF4EB2B787BD4007F1B25 /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftformat > /dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

@@ -7,35 +7,40 @@
 
 import Foundation
 
+// MARK: - APIError
 enum APIError: Error {
     case badRequest
     case invalidURL(urlStr: String)
 }
 
+// MARK: - CustomStringConvertible
 extension APIError: CustomStringConvertible {
     var description: String {
         switch self {
         case .badRequest:
             return "Api request is bad."
-        case .invalidURL(let urlStr):
+        case let .invalidURL(urlStr):
             return "\(urlStr) is invalid url."
         }
     }
 }
 
+// MARK: - APIMethod
 enum APIMethod: String {
     case get, post, put, patch, delete
 }
 
+// MARK: - Request
 enum Request {
     case jsonEncoding(_ model: [String: Any]?)
     case queryString(_ dict: [String: Any]?)
     case multiPart(_ multiPart: MultipartRequest)
     case requestPlain
 
+    // MARK: - Internal
     var jsonBody: [String: Any]? {
         switch self {
-        case .jsonEncoding(let model):
+        case let .jsonEncoding(model):
             return model
         case .queryString, .multiPart, .requestPlain: return nil
         }
@@ -45,7 +50,7 @@ enum Request {
         switch self {
         case .jsonEncoding, .multiPart, .requestPlain:
             return []
-        case .queryString(let dict):
+        case let .queryString(dict):
             return dict?.asQueryParam ?? []
         }
     }
@@ -53,7 +58,7 @@ enum Request {
     var formData: MultipartRequest? {
         switch self {
         case .jsonEncoding, .queryString, .requestPlain: return nil
-        case .multiPart(let multiPart):
+        case let .multiPart(multiPart):
             return multiPart
         }
     }

@@ -33,7 +33,7 @@ final class ViewModel {
     func transform(input: AppAnyPublisher<Input>) -> AppAnyPublisher<Output> {
         input.sink { [weak self] event in
             switch event {
-            case .viewDidLoad(let imageData):
+            case let .viewDidLoad(imageData):
                 self?.sampleApiCallFunc(imageData: imageData)
             }
         }.store(in: &bag)

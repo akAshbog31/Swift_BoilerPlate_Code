@@ -7,9 +7,10 @@
 
 import UIKit
 
+// MARK: - ViewController
 final class ViewController: BaseVc {
     // MARK: - @IBOutlets
-    @IBOutlet weak var clvMain: UICollectionView!
+    @IBOutlet var clvMain: UICollectionView!
 
     // MARK: - Properties
     private var viewModel = ViewModel()
@@ -37,15 +38,16 @@ final class ViewController: BaseVc {
         clvMain.register(R.nib.mainCell)
         configureCollectionView()
     }
+
     // MARK: - @IBActions
 
     // MARK: - Functions
     private func bindViewModel() {
         viewModel.transform(input: input.eraseToAnyPublisher()).sink { [weak self] event in
             switch event {
-            case .loader(let isLoading):
+            case let .loader(isLoading):
                 isLoading ? self?.showHUD() : self?.hideHUD()
-            case .showError(let msg):
+            case let .showError(msg):
                 self?.showAlert(msg: msg)
             }
         }.store(in: &disposeBag)
@@ -65,11 +67,11 @@ final class ViewController: BaseVc {
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+    func numberOfSections(in _: UICollectionView) -> Int {
+        2
     }
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch section {
         case 0: return 3
         case 1: return 6
@@ -92,20 +94,22 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
         showHUD()
         queue.after(time: 4) {
             self.hideHUD()
         }
     }
 
-    func collectionView(_ collectionView: UICollectionView,
+    func collectionView(_: UICollectionView,
                         viewForSupplementaryElementOfKind kind: String,
                         at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == "Header" {
             guard let header = clvMain.dequeueReusableSupplementaryView(ofKind: kind,
                                                                         withReuseIdentifier: R.nib.headerTitleCell,
-                                                                        for: indexPath) else { return .init() }
+                                                                        for: indexPath) else {
+                return .init()
+            }
             switch indexPath.section {
             case 0:
                 header.lblTitle.text = "Top Relationship"

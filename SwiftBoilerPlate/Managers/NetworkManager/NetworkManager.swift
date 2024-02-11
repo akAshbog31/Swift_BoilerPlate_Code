@@ -9,6 +9,6 @@ import Foundation
 
 final class NetworkManager: NetworkService {
     func updateProfile(model: UpdateProfilePostModel) async throws -> GenralResponseModel<User> {
-        return try await APIService.request(API.updateProfile(model: model))
+        try await APIService.request(API.updateProfile(model: model))
     }
 }

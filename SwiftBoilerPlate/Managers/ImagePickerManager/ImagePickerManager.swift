@@ -7,11 +7,13 @@
 
 import UIKit
 
+// MARK: - PickingOption
 enum PickingOption {
     case camera
     case photos
 }
 
+// MARK: - ImagePickerManager
 final class ImagePickerManager: NSObject {
     private var imagePicker = UIImagePickerController()
     private var viewController: UIViewController?
@@ -20,7 +22,7 @@ final class ImagePickerManager: NSObject {
 
     static let shared = ImagePickerManager()
 
-    private override init() {
+    override private init() {
         super.init()
     }
 
@@ -28,7 +30,7 @@ final class ImagePickerManager: NSObject {
         let pickerAlert = UIAlertController(title: "Choose image from",
                                             message: nil,
                                             preferredStyle:
-                                                UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet)
+                                            UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet)
         if pickerTypes.contains(.camera) {
             let cameraAction = UIAlertAction(title: "Camera", style: .default) { _ in
                 self.openCamera()
@@ -53,21 +55,25 @@ final class ImagePickerManager: NSObject {
                    withOption: [PickingOption],
                    _ didFinishPickingMedia: @escaping ((UIImage) -> Void)) {
         self.didFinishPickingMedia = didFinishPickingMedia
-        self.pickerTypes = withOption
+        pickerTypes = withOption
         self.viewController = viewController
         imagePicker.delegate = self
         if withOption.count == 1 {
-            if withOption.first == .camera { openCamera() }
-            if withOption.first == .photos { openPhotos() }
+            if withOption.first == .camera {
+                openCamera()
+            }
+            if withOption.first == .photos {
+                openPhotos()
+            }
             return
         }
         configureAndShowAlerts()
     }
 
     private func openCamera() {
-        if UIImagePickerController .isSourceTypeAvailable(.camera) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
             imagePicker.sourceType = .camera
-            self.viewController?.present(imagePicker, animated: true, completion: nil)
+            viewController?.present(imagePicker, animated: true, completion: nil)
         } else {
             Globals.keyWindow?.rootViewController?.showAlert(msg: "No camera available.")
         }
@@ -75,10 +81,11 @@ final class ImagePickerManager: NSObject {
 
     private func openPhotos() {
         imagePicker.sourceType = .photoLibrary
-        self.viewController?.present(imagePicker, animated: true, completion: nil)
+        viewController?.present(imagePicker, animated: true, completion: nil)
     }
 }
 
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
 extension ImagePickerManager: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)

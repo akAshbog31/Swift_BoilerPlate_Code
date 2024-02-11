@@ -21,7 +21,7 @@ extension String {
 extension String {
     // MARK: - isBlank
     var isBlank: Bool {
-        return trimmingCharacters(in: CharacterSet.whitespaces).isEmpty
+        trimmingCharacters(in: CharacterSet.whitespaces).isEmpty
     }
 
     // MARK: - isEmail
@@ -31,7 +31,7 @@ extension String {
                                                 options: .caseInsensitive)
             return regex.firstMatch(in: self,
                                     options: NSRegularExpression.MatchingOptions(rawValue: 0),
-                                    range: NSRange(location: 0, length: self.count)) != nil
+                                    range: NSRange(location: 0, length: count)) != nil
         } catch {
             return false
         }
@@ -40,9 +40,11 @@ extension String {
     // MARK: - isPhoneNumber
     var isPhoneNumber: Bool {
         let types: NSTextCheckingResult.CheckingType = [.phoneNumber]
-        guard let detector = try? NSDataDetector(types: types.rawValue) else { return false }
+        guard let detector = try? NSDataDetector(types: types.rawValue) else {
+            return false
+        }
         if let match = detector
-            .matches(in: self, options: [], range: NSRange(location: 0, length: self.count))
+            .matches(in: self, options: [], range: NSRange(location: 0, length: count))
             .first?
             .phoneNumber {
             return match == self
@@ -53,16 +55,16 @@ extension String {
 
     // MARK: - isValidPassword
     var isValidPassword: Bool {
-        if self.count < 8 {
+        if count < 8 {
             return false
         }
-        if self.range(of: #"\d+"#, options: .regularExpression) == nil {
+        if range(of: #"\d+"#, options: .regularExpression) == nil {
             return false
         }
-        if self.range(of: #"\p{Alphabetic}+"#, options: .regularExpression) == nil {
+        if range(of: #"\p{Alphabetic}+"#, options: .regularExpression) == nil {
             return false
         }
-        if self.range(of: #"\s+"#, options: .regularExpression) != nil {
+        if range(of: #"\s+"#, options: .regularExpression) != nil {
             return false
         }
         return true

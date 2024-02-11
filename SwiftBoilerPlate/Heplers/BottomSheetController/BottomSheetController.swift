@@ -29,6 +29,7 @@ public class BottomSheetController: UIViewController {
             configureRoundedHeader()
         }
     }
+
     @IBOutlet private var intermediate: UIView!
     @IBOutlet private var bottomFiller: UIView!
     @IBOutlet private var container: UIView!
@@ -75,18 +76,18 @@ public class BottomSheetController: UIViewController {
     ///   - contentView: View for embeded content.
     public init(contentView: UIView) {
         self.contentView = contentView
-        self.contentViewController = nil
+        contentViewController = nil
         super.init(nibName: "BottomSheetController", bundle: nil)
         modalPresentationStyle = .overFullScreen
         modalTransitionStyle = .crossDissolve
     }
 
     @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
 
         // Attach content view on container
@@ -104,7 +105,7 @@ public class BottomSheetController: UIViewController {
         }
     }
 
-    public override func viewWillAppear(_ animated: Bool) {
+    override public func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         sheetHeight = sheet.frame.height
         closeSheet(animated: false)
@@ -113,13 +114,13 @@ public class BottomSheetController: UIViewController {
         }
     }
 
-    public override func viewDidLayoutSubviews() {
+    override public func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         configureRoundedHeader()
     }
 
     /// Close sheet programmatically.
-    public func close(completion: (() -> Void)? = nil) {
+    public func close(completion _: (() -> Void)? = nil) {
         sheetHeight = sheet.frame.height
         closeSheet(animated: true) { _ in
             self.dismiss(animated: true)
@@ -161,7 +162,8 @@ public class BottomSheetController: UIViewController {
                 animations: {
                     self.background.alpha = 1.0
                     self.view.layoutIfNeeded()
-                })
+                }
+            )
         } else {
             background.alpha = 1.0
             position.constant = 0
@@ -198,7 +200,7 @@ public class BottomSheetController: UIViewController {
             let translation: CGFloat = gestureRecognizer.translation(in: view).y
             let factor: CGFloat = position.constant > 0 ? overContentTransitionFactor : contentTransitionFactor
             transition -= translation * factor
-            if 0..<view.safeAreaInsets.bottom ~= transition {
+            if 0 ..< view.safeAreaInsets.bottom ~= transition {
                 if translation < 0 {
                     transition = view.safeAreaInsets.bottom
                 } else {
@@ -223,7 +225,7 @@ public class BottomSheetController: UIViewController {
         }
     }
 
-    @IBAction private func didTapBackground(_ gestureRecognizer: UITapGestureRecognizer) {
+    @IBAction private func didTapBackground(_: UITapGestureRecognizer) {
         close()
     }
 }

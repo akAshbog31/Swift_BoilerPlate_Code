@@ -13,6 +13,10 @@ Key Features:
 
 - KingFisher Integration: Streamline image loading and caching with KingFisher, enhancing the performance of your app's image handling.
 
+- SwiftLint Integration: To keep best practices while coding.
+
+- SwiftFromat Integration: To Format swift code to indstry standured.
+
 - R.swift Integration: Leverage type-safe resource access with R.swift, ensuring that your assets, strings, and other resources are seamlessly integrated into your codebase.
 
 - Compositional Collection Views: Tackle complex UIs with ease using compositional collection views, enabling a modular and scalable approach to building dynamic user interfaces.
@@ -29,6 +33,12 @@ Dependencies:
 - IQKeyboardManagerSwift
 - SDWebImage
 - R.Swift
+
+Project Configuration:
+- 1. When open project first time `Build` it once to remove `R` not found error.
+- 2. Add `SwiftFormat` globaly using `brew install swiftformat` command. (Refrance:- https://github.com/nicklockwood/SwiftFormat.git)
+- 3. Add `SwiftLint` globaly using `brew install swiftlint` command. (Refrance:- https://github.com/realm/SwiftLint.git)
+- 4. Build project onece to remove all `Error` and format code.
 
 Contributing:
 We welcome contributions! If you have improvements, bug fixes, or additional features to propose, please open an issue or submit a pull request.

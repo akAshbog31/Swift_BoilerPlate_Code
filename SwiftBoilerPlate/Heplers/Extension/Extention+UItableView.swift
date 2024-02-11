@@ -11,8 +11,10 @@ import UIKit
 extension UITableView {
     func deque<Cell: UITableViewCell>() -> Cell {
         let identifier = String(describing: Cell.self)
-        guard let cell = self.dequeueReusableCell(withIdentifier: identifier) as? Cell
-            else {fatalError("=====>Error in cell") }
+        guard let cell = dequeueReusableCell(withIdentifier: identifier) as? Cell
+        else {
+            fatalError("=====>Error in cell")
+        }
         return cell
     }
 

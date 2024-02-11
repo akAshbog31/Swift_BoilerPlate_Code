@@ -5,24 +5,27 @@
 //  Created by AKASH on 22/12/22.
 //
 
-import UIKit
 import IHProgressHUD
 import IQKeyboardManagerSwift
 import Kingfisher
+import UIKit
 
 // MARK: - ViewController Transitions
+
 extension UIViewController {
     func pushVc(viewController: UIViewController?,
                 transition type: CATransitionType = .fade,
                 interval: TimeInterval = 0.3) {
-        guard let viewController = viewController else { return }
+        guard let viewController = viewController else {
+            return
+        }
         createTransition(transition: type, interval: interval)
-        self.navigationController?.pushViewController(viewController, animated: true)
+        navigationController?.pushViewController(viewController, animated: true)
     }
 
     func popVc(transition type: CATransitionType = .fade, interval: TimeInterval = 0.3) {
         createTransition(transition: type, interval: interval)
-        self.navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 
     func createTransition(transition type: CATransitionType = .fade, interval: TimeInterval = 0.3) {
@@ -30,11 +33,12 @@ extension UIViewController {
         transition.duration = interval
         transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         transition.type = type
-        self.navigationController?.view.layer.add(transition, forKey: nil)
+        navigationController?.view.layer.add(transition, forKey: nil)
     }
 }
 
 // MARK: - Hide/Show Huds
+
 extension UIViewController {
     func showHUD(progressLabel: String = "Loading...", hudColor: UIColor = .label) {
         queue.async {
@@ -62,6 +66,7 @@ extension UIViewController {
 }
 
 // MARK: - Show Alerts
+
 extension UIViewController {
     func showAlertWithTitle(title: String = Bundle.main.appName,
                             msg: String,
@@ -70,11 +75,11 @@ extension UIViewController {
                             completion: @escaping ((Int) -> Void)) {
         let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         for (index, option) in options.enumerated() {
-            alert.addAction(UIAlertAction.init(title: option,
-                                               style: btnStyle[index],
-                                               handler: { _ in
-                completion(index)
-            }))
+            alert.addAction(UIAlertAction(title: option,
+                                          style: btnStyle[index],
+                                          handler: { _ in
+                                              completion(index)
+                                          }))
         }
         var rootViewController = Utils.shared.getSceneDelegate()?.window?.rootViewController
         if let navigationController = rootViewController as? UINavigationController {
@@ -90,16 +95,16 @@ extension UIViewController {
     }
 
     func showAlert(title: String = Bundle.main.appName, msg: String, buttonText: String? = "OK") {
-        self.showAlertWithTitle(title: title,
-                                msg: msg,
-                                options: buttonText ?? "OK",
-                                btnStyle: .default,
-                                completion: { option in
-            switch option {
-            case 0: break
-            default: break
-            }
-        })
+        showAlertWithTitle(title: title,
+                           msg: msg,
+                           options: buttonText ?? "OK",
+                           btnStyle: .default,
+                           completion: { option in
+                               switch option {
+                               case 0: break
+                               default: break
+                               }
+                           })
     }
 
     func gotoSettingAlert(msg: String) {
@@ -113,15 +118,16 @@ extension UIViewController {
         let btnCancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         alert.addAction(gotoSetting)
         alert.addAction(btnCancel)
-        self.present(alert, animated: true, completion: nil)
+        present(alert, animated: true, completion: nil)
     }
 }
 
 // MARK: - Check Notification Status
+
 extension UIViewController {
     func checkNotificationsAuthorizationStatus(complition: @escaping (Bool) -> Void) {
         let userNotificationCenter = UNUserNotificationCenter.current()
-        userNotificationCenter.getNotificationSettings { (notificationSettings) in
+        userNotificationCenter.getNotificationSettings { notificationSettings in
             if notificationSettings.authorizationStatus == .authorized {
                 complition(true)
             } else {
@@ -132,14 +138,17 @@ extension UIViewController {
 }
 
 // MARK: - Kingfisher
+
 extension UIViewController {
     func retriveImages(from urlStr: String, complition: @escaping (UIImage) -> Void) {
-        guard let url = URL(string: urlStr) else { return }
+        guard let url = URL(string: urlStr) else {
+            return
+        }
         KingfisherManager.shared.retrieveImage(with: url) { result in
             switch result {
-            case .success(let `value`):
+            case let .success(value):
                 complition(value.image)
-            case .failure(let error):
+            case let .failure(error):
                 self.showAlert(msg: error.localizedDescription)
             }
         }

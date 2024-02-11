@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - TaskCancellables
 class TaskCancellables: Hashable {
     static func == (lhs: TaskCancellables, rhs: TaskCancellables) -> Bool {
         lhs.id == rhs.id
@@ -16,7 +17,7 @@ class TaskCancellables: Hashable {
         hasher.combine(id)
     }
 
-    private var id: UUID = UUID()
+    private var id: UUID = .init()
     private var task: Task<Void, Never>
 
     init(task: Task<Void, Never>) {

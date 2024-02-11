@@ -5,9 +5,9 @@
 //  Created by AKASH on 19/09/23.
 //
 
+import Combine
 import Foundation
 import UIKit
-import Combine
 
 // MARK: - TypeAlice
 typealias TaskBag = Set<TaskCancellables>
@@ -22,7 +22,7 @@ public let queue = DispatchQueue.main
 enum Globals {
     // MARK: - Key Window
     static var keyWindow: UIWindow? {
-        return UIApplication.shared.connectedScenes.compactMap { ($0 as? UIWindowScene)?.keyWindow }.last
+        UIApplication.shared.connectedScenes.compactMap { ($0 as? UIWindowScene)?.keyWindow }.last
     }
 }
 
@@ -35,10 +35,11 @@ enum ValidationError: Error {
     case inValidOtpCount
 }
 
+// MARK: - CustomStringConvertible
 extension ValidationError: CustomStringConvertible {
     var description: String {
         switch self {
-        case .empty(let type):
+        case let .empty(type):
             return "\(type) must not empty."
         case .inValidEmailOrPhonenumber:
             return "Email/Phone number is not valid."
@@ -57,6 +58,7 @@ enum AppError: Error {
     case inValidURL
 }
 
+// MARK: - CustomStringConvertible
 extension AppError: CustomStringConvertible {
     var description: String {
         switch self {

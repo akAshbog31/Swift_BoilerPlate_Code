@@ -9,7 +9,7 @@ import UIKit
 
 final class MainCell: UICollectionViewCell {
     // MARK: - @IBOutlet
-    @IBOutlet weak var viewBg: UIView!
+    @IBOutlet var viewBg: UIView!
 
     // MARK: - Properties
 

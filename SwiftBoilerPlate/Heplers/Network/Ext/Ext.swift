@@ -9,7 +9,9 @@ import Foundation
 
 extension Encodable {
     var asDictionary: [String: Any]? {
-        guard let data = try? JSONEncoder().encode(self) else { return nil }
+        guard let data = try? JSONEncoder().encode(self) else {
+            return nil
+        }
         return (try? JSONSerialization
             .jsonObject(with: data, options: .allowFragments))
             .flatMap { $0 as? [String: Any] }
@@ -18,7 +20,7 @@ extension Encodable {
 
 extension Dictionary where Key == String {
     var asQueryParam: [URLQueryItem] {
-        return self.compactMap { key, value in
+        compactMap { key, value in
             let stringValue: String
             if let stringConvertible = value as? CustomStringConvertible {
                 stringValue = stringConvertible.description
@@ -30,9 +32,11 @@ extension Dictionary where Key == String {
     }
 }
 
-extension URLRequest {
-    public var curlString: String {
-        guard let url = url else { return "" }
+public extension URLRequest {
+    var curlString: String {
+        guard let url = url else {
+            return ""
+        }
         var baseCommand = #"curl "\#(url.absoluteString)""#
 
         if httpMethod == "HEAD" {
@@ -56,7 +60,9 @@ extension URLRequest {
 
 public extension Data {
     mutating func append(_ string: String, encoding: String.Encoding = .utf8) {
-        guard let data = string.data(using: encoding) else { return }
+        guard let data = string.data(using: encoding) else {
+            return
+        }
         append(data)
     }
 }

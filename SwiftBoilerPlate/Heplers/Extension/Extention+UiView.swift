@@ -10,7 +10,9 @@ import UIKit
 public extension UIView {
     @IBInspectable var layerBorderColor: UIColor? {
         get {
-            guard let color = layer.borderColor else { return nil }
+            guard let color = layer.borderColor else {
+                return nil
+            }
             return UIColor(cgColor: color)
         }
         set {
@@ -19,14 +21,16 @@ public extension UIView {
                 return
             }
             // Fix React-Native conflict issue
-            guard String(describing: type(of: color)) != "__NSCFType" else { return }
+            guard String(describing: type(of: color)) != "__NSCFType" else {
+                return
+            }
             layer.borderColor = color.cgColor
         }
     }
 
     @IBInspectable var layerBorderWidth: CGFloat {
         get {
-            return layer.borderWidth
+            layer.borderWidth
         }
         set {
             layer.borderWidth = newValue
@@ -35,7 +39,7 @@ public extension UIView {
 
     @IBInspectable var layerCornerRadius: CGFloat {
         get {
-            return layer.cornerRadius
+            layer.cornerRadius
         }
         set {
             layer.masksToBounds = true
@@ -45,7 +49,7 @@ public extension UIView {
 
     var height: CGFloat {
         get {
-            return frame.size.height
+            frame.size.height
         }
         set {
             frame.size.height = newValue
@@ -53,12 +57,14 @@ public extension UIView {
     }
 
     var isRightToLeft: Bool {
-        return effectiveUserInterfaceLayoutDirection == .rightToLeft
+        effectiveUserInterfaceLayoutDirection == .rightToLeft
     }
 
     var screenshot: UIImage? {
         let size = layer.frame.size
-        guard size != .zero else { return nil }
+        guard size != .zero else {
+            return nil
+        }
         return UIGraphicsImageRenderer(size: layer.frame.size).image { context in
             layer.render(in: context.cgContext)
         }
@@ -66,7 +72,9 @@ public extension UIView {
 
     @IBInspectable var layerShadowColor: UIColor? {
         get {
-            guard let color = layer.shadowColor else { return nil }
+            guard let color = layer.shadowColor else {
+                return nil
+            }
             return UIColor(cgColor: color)
         }
         set {
@@ -76,7 +84,7 @@ public extension UIView {
 
     @IBInspectable var layerShadowOffset: CGSize {
         get {
-            return layer.shadowOffset
+            layer.shadowOffset
         }
         set {
             layer.shadowOffset = newValue
@@ -85,7 +93,7 @@ public extension UIView {
 
     @IBInspectable var layerShadowOpacity: Float {
         get {
-            return layer.shadowOpacity
+            layer.shadowOpacity
         }
         set {
             layer.shadowOpacity = newValue
@@ -94,7 +102,7 @@ public extension UIView {
 
     @IBInspectable var layerShadowRadius: CGFloat {
         get {
-            return layer.shadowRadius
+            layer.shadowRadius
         }
         set {
             layer.shadowRadius = newValue
@@ -103,7 +111,7 @@ public extension UIView {
 
     @IBInspectable var masksToBounds: Bool {
         get {
-            return layer.masksToBounds
+            layer.masksToBounds
         }
         set {
             layer.masksToBounds = newValue
@@ -112,7 +120,7 @@ public extension UIView {
 
     var size: CGSize {
         get {
-            return frame.size
+            frame.size
         }
         set {
             width = newValue.width
@@ -133,7 +141,7 @@ public extension UIView {
 
     var width: CGFloat {
         get {
-            return frame.size.width
+            frame.size.width
         }
         set {
             frame.size.width = newValue
@@ -142,7 +150,7 @@ public extension UIView {
 
     var xPosition: CGFloat {
         get {
-            return frame.origin.x
+            frame.origin.x
         }
         set {
             frame.origin.x = newValue
@@ -151,7 +159,7 @@ public extension UIView {
 
     var yPosition: CGFloat {
         get {
-            return frame.origin.y
+            frame.origin.y
         }
         set {
             frame.origin.y = newValue
@@ -164,7 +172,7 @@ extension UILabel {
     @IBInspectable
     var dynamicFontSize: CGFloat {
         get {
-            return self.dynamicFontSize
+            self.dynamicFontSize
         }
         set {
             let size = newValue * UIScreen.main.bounds.size.width / 430
@@ -178,7 +186,7 @@ extension UIButton {
     @IBInspectable
     var dynamicFontSize: CGFloat {
         get {
-            return self.dynamicFontSize
+            self.dynamicFontSize
         }
         set {
             let size = newValue * UIScreen.main.bounds.size.width / 430
@@ -192,7 +200,7 @@ extension UITextField {
     @IBInspectable
     var dynamicFontSize: CGFloat {
         get {
-            return self.dynamicFontSize
+            self.dynamicFontSize
         }
         set {
             let size = newValue * UIScreen.main.bounds.size.width / 430
@@ -206,7 +214,7 @@ extension UITextView {
     @IBInspectable
     var dynamicFontSize: CGFloat {
         get {
-            return self.dynamicFontSize
+            self.dynamicFontSize
         }
         set {
             let size = newValue * UIScreen.main.bounds.size.width / 430
@@ -215,8 +223,16 @@ extension UITextView {
     }
 }
 
+// MARK: - UIView.GradientDirection
 public extension UIView {
     struct GradientDirection {
+        // MARK: - Lifecycle
+        public init(startPoint: CGPoint, endPoint: CGPoint) {
+            self.startPoint = startPoint
+            self.endPoint = endPoint
+        }
+
+        // MARK: - Public
         public static let topToBottom = GradientDirection(startPoint: CGPoint(x: 0.5, y: 0.0),
                                                           endPoint: CGPoint(x: 0.5, y: 1.0))
         public static let bottomToTop = GradientDirection(startPoint: CGPoint(x: 0.5, y: 1.0),
@@ -228,11 +244,6 @@ public extension UIView {
 
         public let startPoint: CGPoint
         public let endPoint: CGPoint
-
-        public init(startPoint: CGPoint, endPoint: CGPoint) {
-            self.startPoint = startPoint
-            self.endPoint = endPoint
-        }
     }
 }
 
@@ -259,21 +270,21 @@ extension UIView {
     }
 
     func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
-        let path = UIBezierPath(roundedRect: self.bounds,
+        let path = UIBezierPath(roundedRect: bounds,
                                 byRoundingCorners: corners,
                                 cornerRadii: CGSize(width: radius, height: radius))
         let mask = CAShapeLayer()
         mask.path = path.cgPath
-        self.layer.mask = mask
+        layer.mask = mask
     }
 }
 
 extension UIView {
     func superview<T>(of type: T.Type) -> T? {
-        return superview as? T ?? superview.map { $0.superview(of: type)! }
+        superview as? T ?? superview.map { $0.superview(of: type)! }
     }
 
     func subview<T>(of type: T.Type) -> T? {
-        return subviews.compactMap { $0 as? T ?? $0.subview(of: type) }.first
+        subviews.compactMap { $0 as? T ?? $0.subview(of: type) }.first
     }
 }

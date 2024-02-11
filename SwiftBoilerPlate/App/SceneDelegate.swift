@@ -7,13 +7,16 @@
 
 import UIKit
 
+// MARK: - SceneDelegate
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene,
-               willConnectTo session: UISceneSession,
-               options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+               willConnectTo _: UISceneSession,
+               options _: UIScene.ConnectionOptions) {
+        guard let windowScene = (scene as? UIWindowScene) else {
+            return
+        }
 
         window = UIWindow(windowScene: windowScene)
         setRootVc(viewController: .main)
@@ -27,7 +30,9 @@ extension SceneDelegate {
                    duration: TimeInterval = 0.5,
                    options: UIView.AnimationOptions = .transitionCrossDissolve,
                    _ completion: (() -> Void)? = nil) {
-        guard let logInVc = R.storyboard.main.viewController() else { return }
+        guard let logInVc = R.storyboard.main.viewController() else {
+            return
+        }
 
         switch viewController {
         case .main:
@@ -38,7 +43,7 @@ extension SceneDelegate {
     }
 }
 
-// MARK: - Enum VCType
+// MARK: - VCType
 enum VCType {
     case main
 }

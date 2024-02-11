@@ -5,14 +5,16 @@
 //  Created by AKASH on 07/08/23.
 //
 
-import UIKit
 import Kingfisher
+import UIKit
 
 extension UIImageView {
     func setImage(from urlStr: String, placeholderImage: UIImage = UIImage(), complition: ((UIImage) -> Void)? = nil) {
-        guard let url = URL(string: urlStr) else { return }
-        self.kf.indicatorType = .activity
-        self.kf.setImage(
+        guard let url = URL(string: urlStr) else {
+            return
+        }
+        kf.indicatorType = .activity
+        kf.setImage(
             with: url,
             placeholder: placeholderImage,
             options: [
@@ -23,9 +25,9 @@ extension UIImageView {
             ]
         ) { result in
             switch result {
-            case .success(let `value`):
+            case let .success(value):
                 complition?(value.image)
-            case .failure(let error):
+            case let .failure(error):
                 print(error.localizedDescription)
             }
         }

@@ -36,7 +36,7 @@ struct User: Codable {
     let countryCode: String?
     let phoneNumber: Int?
     let email: String?
-    let socialId, socialProvider, password, notes, dateOfBirth, createdAt: String?
+    let socialID, socialProvider, password, notes, dateOfBirth, createdAt: String?
     let isActive: Bool?
     let updatedAt: String?
     let deletedAt: String?
@@ -47,7 +47,7 @@ struct User: Codable {
         case countryCode = "country_code"
         case phoneNumber = "phone_number"
         case email
-        case socialId = "social_id"
+        case socialID = "social_id"
         case socialProvider = "social_provider"
         case password, notes
         case dateOfBirth = "date_of_birth"
