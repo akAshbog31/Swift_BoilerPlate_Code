@@ -5,9 +5,20 @@
 //  Created by iOS Developer on 21/08/23.
 //
 
+//
+//  Ext.swift
+//  Squeezee
+//
+//  Created by iOS Developer on 21/08/23.
+//
+
 import Foundation
 
-extension Encodable {
+/**
+ Encodes the receiver as JSON data using the JSONEncoder.
+ - Returns: The JSON data, or `nil` if encoding failed.
+ */
+public extension Encodable {
     var asDictionary: [String: Any]? {
         guard let data = try? JSONEncoder().encode(self) else {
             return nil
@@ -18,7 +29,11 @@ extension Encodable {
     }
 }
 
-extension Dictionary where Key == String {
+/**
+ Creates a URLQueryItem array from the dictionary.
+ - Returns: The URLQueryItem array.
+ */
+public extension Dictionary where Key == String {
     var asQueryParam: [URLQueryItem] {
         compactMap { key, value in
             let stringValue: String
@@ -32,6 +47,10 @@ extension Dictionary where Key == String {
     }
 }
 
+/**
+ Creates a CURL command string from the URLRequest.
+ - Returns: The CURL command string.
+ */
 public extension URLRequest {
     var curlString: String {
         guard let url = url else {
@@ -58,6 +77,12 @@ public extension URLRequest {
     }
 }
 
+/**
+ Appends the given string to the end of the data.
+ - Parameters:
+   - string: The string to append.
+   - encoding: The encoding to use when converting the string to data.
+ */
 public extension Data {
     mutating func append(_ string: String, encoding: String.Encoding = .utf8) {
         guard let data = string.data(using: encoding) else {
