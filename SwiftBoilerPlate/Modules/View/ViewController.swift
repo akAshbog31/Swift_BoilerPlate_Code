@@ -43,12 +43,12 @@ final class ViewController: BaseVc {
 
     // MARK: - Functions
     private func bindViewModel() {
-        viewModel.transform(input: input.eraseToAnyPublisher()).sink { [weak self] event in
+        viewModel.transform(input: input.eraseToAnyPublisher()).weekSink(self) { strongSelf, event in
             switch event {
             case let .loader(isLoading):
-                isLoading ? self?.showHUD() : self?.hideHUD()
+                isLoading ? strongSelf.showHUD() : strongSelf.hideHUD()
             case let .showError(msg):
-                self?.showAlert(msg: msg)
+                strongSelf.showAlert(msg: msg)
             }
         }.store(in: &disposeBag)
     }

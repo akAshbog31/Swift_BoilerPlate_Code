@@ -14,6 +14,9 @@ included: # paths to include during linting. `--path` is ignored if present.
   - SwiftBoilerPlate
 excluded: # paths to ignore during linting. Takes precedence over `included`.
   - Project/R.generated.swift
+  - Carthage
+  - Pods
+  - .build
 
 # configurable rules can be customized from this configuration file
 # binary rules can set their severity level

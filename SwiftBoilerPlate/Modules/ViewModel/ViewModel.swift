@@ -31,10 +31,10 @@ final class ViewModel {
 
     // MARK: - Functions
     func transform(input: AppAnyPublisher<Input>) -> AppAnyPublisher<Output> {
-        input.sink { [weak self] event in
+        input.weekSink(self) { strongSelf, event in
             switch event {
             case let .viewDidLoad(imageData):
-                self?.sampleApiCallFunc(imageData: imageData)
+                strongSelf.sampleApiCallFunc(imageData: imageData)
             }
         }.store(in: &bag)
         return output.eraseToAnyPublisher()

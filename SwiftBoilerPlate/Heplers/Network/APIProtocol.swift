@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import OSLog
 
 // MARK: - APIProtocol
-/** 
+/**
  The `APIProtocol` protocol defines the basic properties of an API request.
 
  - `method`: The HTTP method used for the request.

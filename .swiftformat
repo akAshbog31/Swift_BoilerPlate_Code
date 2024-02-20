@@ -1,5 +1,4 @@
-# format options
-
+# Format Options
 --allman false
 --binarygrouping 4,8
 --commas always
@@ -34,8 +33,7 @@
 --lineaftermarks false
 --groupedextension "MARK: - %c"
 
-# rules
-
+# Rules
 --enable isEmpty
 --enable blankLinesBetweenImports
 --enable acronyms

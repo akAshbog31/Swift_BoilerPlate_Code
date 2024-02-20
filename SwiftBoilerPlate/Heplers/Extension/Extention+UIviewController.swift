@@ -91,7 +91,9 @@ extension UIViewController {
         if let presentedVc = rootViewController?.presentedViewController {
             rootViewController = presentedVc
         }
-        rootViewController?.present(alert, animated: true, completion: nil)
+        queue.async {
+            rootViewController?.present(alert, animated: true, completion: nil)
+        }
     }
 
     func showAlert(title: String = Bundle.main.appName, msg: String, buttonText: String? = "OK") {
