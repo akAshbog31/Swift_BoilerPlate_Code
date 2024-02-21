@@ -9,7 +9,7 @@ import Foundation
 
 extension Bundle {
     var appName: String {
-        object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? "App-Name"
+        object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? object(forInfoDictionaryKey: "CFBundleName") as? String ?? "App-Name"
     }
 
     func decode<T: Codable>(_ file: String) -> T {
