@@ -19,7 +19,7 @@ extension Publisher where Failure == Never {
 
     func weekSink<Object: AnyObject>(
         _ object: Object,
-        receiveValue: @escaping (_ strongSelf: Object, Self.Output) -> Void
+        receiveValue: @escaping (_ strongSelf: Object, _ event: Self.Output) -> Void
     ) -> AnyCancellable {
         sink { [weak object] output in
             guard let strongRef = object else {

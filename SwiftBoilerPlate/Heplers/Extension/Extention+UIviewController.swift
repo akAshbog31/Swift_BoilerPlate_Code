@@ -156,3 +156,10 @@ extension UIViewController {
         }
     }
 }
+
+// MARK: - Identifier
+extension UIViewController {
+    static var identifier: String {
+        String(describing: self)
+    }
+}

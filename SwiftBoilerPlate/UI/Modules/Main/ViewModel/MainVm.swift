@@ -1,27 +1,22 @@
 //
-//  ViewModel.swift
+//  MainVm.swift
 //  SwiftBoilerPlate
 //
-//  Created by AKASH on 22/11/23.
+//  Created by AKASH BOGHANI on 10/03/24.
 //
 
 import Foundation
 
-final class ViewModel {
+final class MainVm: ViewModel {
     // MARK: - Properties
     var bag = Bag()
     var taskBag = TaskBag()
-    var networkService: NetworkService
     var output = AppSubject<Output>()
-
-    // MARK: - Life-Cycle
-    init(networkService: NetworkService = NetworkManager()) {
-        self.networkService = networkService
-    }
 
     // MARK: - Enums
     enum Input {
         case viewDidLoad(imageData: Data)
+        case navigateToSecondVc
     }
 
     enum Output {
@@ -35,6 +30,8 @@ final class ViewModel {
             switch event {
             case let .viewDidLoad(imageData):
                 strongSelf.sampleApiCallFunc(imageData: imageData)
+            case .navigateToSecondVc:
+                strongSelf.router.push(to: .second, with: nil, for: nil)
             }
         }.store(in: &bag)
         return output.eraseToAnyPublisher()
@@ -45,7 +42,7 @@ final class ViewModel {
         Task {
             do {
                 let name = "Test"
-                let model = try await networkService
+                let model = try await networkServices
                     .updateProfile(model: UpdateProfilePostModel(name: name, profileImage: imageData))
                 print(model.data!)
                 output.send(.loader(isLoading: false))

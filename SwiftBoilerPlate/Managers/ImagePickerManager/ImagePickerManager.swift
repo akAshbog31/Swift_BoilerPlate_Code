@@ -26,7 +26,7 @@ final class ImagePickerManager: NSObject {
         super.init()
     }
 
-    func configureAndShowAlerts() {
+    private func configureAndShowAlerts() {
         let pickerAlert = UIAlertController(title: "Choose image from",
                                             message: nil,
                                             preferredStyle:

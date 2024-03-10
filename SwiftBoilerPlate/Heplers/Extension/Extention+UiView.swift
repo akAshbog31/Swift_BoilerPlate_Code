@@ -288,3 +288,33 @@ extension UIView {
         subviews.compactMap { $0 as? T ?? $0.subview(of: type) }.first
     }
 }
+
+extension UIView {
+    @discardableResult
+    func loadFromNib<T: UIView>() -> T? {
+        let bundle = Bundle(for: type(of: self))
+        let loadedView = bundle.loadNibNamed(String(describing: type(of: self)),
+                                             owner: self,
+                                             options: nil)?.first
+        guard let contentView = loadedView as? T else {
+            return nil
+        }
+        return contentView
+    }
+
+    func fixInView(_ container: UIView, with padding: CGFloat = 0) {
+        frame = container.bounds
+        container.addSubview(self)
+        addEqualConstraintsWith(container, with: padding)
+    }
+
+    func addEqualConstraintsWith(_ view: UIView, with constant: CGFloat = 0) {
+        translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            topAnchor.constraint(equalTo: view.topAnchor, constant: constant),
+            leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: constant),
+            trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: constant),
+            bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: constant)
+        ])
+    }
+}

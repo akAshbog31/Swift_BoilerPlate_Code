@@ -1,32 +1,31 @@
 //
-//  ViewController.swift
-//  BoilerPlate
+//  MainVc.swift
+//  SwiftBoilerPlate
 //
-//  Created by AKASH on 21/11/23.
+//  Created by AKASH BOGHANI on 10/03/24.
 //
 
 import UIKit
 
-// MARK: - ViewController
-final class ViewController: BaseVc {
+// MARK: - MainVc
+final class MainVc: ViewController<MainVm> {
     // MARK: - @IBOutlets
     @IBOutlet var clvMain: UICollectionView!
 
     // MARK: - Properties
-    private var viewModel = ViewModel()
     private var disposeBag = Bag()
-    private var input = AppSubject<ViewModel.Input>()
+    private var input = AppSubject<MainVm.Input>()
 
     // MARK: - Life-Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         bindViewModel()
-        queue.after(time: 3) {
-            ImagePickerManager.shared.pickImage(on: self, withOption: [.photos]) { [weak self] image in
-                self?.input.send(.viewDidLoad(imageData: image.jpegData(compressionQuality: 0.5) ?? Data()))
-            }
-        }
+//        queue.after(time: 3) {
+//            ImagePickerManager.shared.pickImage(on: self, withOption: [.photos]) { [weak self] image in
+//                self?.input.send(.viewDidLoad(imageData: image.jpegData(compressionQuality: 0.5) ?? Data()))
+//            }
+//        }
     }
 
     override func setUi() {
@@ -66,7 +65,7 @@ final class ViewController: BaseVc {
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
-extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension MainVc: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func numberOfSections(in _: UICollectionView) -> Int {
         2
     }
@@ -95,10 +94,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
 
     func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
-        showHUD()
-        queue.after(time: 4) {
-            self.hideHUD()
-        }
+        input.send(.navigateToSecondVc)
     }
 
     func collectionView(_: UICollectionView,

@@ -19,31 +19,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         window = UIWindow(windowScene: windowScene)
-        setRootVc(viewController: .main)
+        configureApp(to: .main)
     }
 }
 
 // MARK: - Extension SceneDelegate
 extension SceneDelegate {
-    func setRootVc(viewController: VCType,
-                   animated: Bool = true,
-                   duration: TimeInterval = 0.5,
-                   options: UIView.AnimationOptions = .transitionCrossDissolve,
-                   _ completion: (() -> Void)? = nil) {
-        guard let logInVc = R.storyboard.main.viewController() else {
-            return
-        }
-
-        switch viewController {
-        case .main:
-            window?.switchRootVc(to: logInVc, animated: animated, duration: duration, options: options, completion)
-        }
-
+    private func configureApp(to route: Route) {
+        let navigationController = UINavigationController()
+        let router = AppRouter(navigationController: navigationController, intialRoute: route)
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        Resolver.default.register(type: Router.self) { router }
+        registerDependencies()
+        router.start()
     }
-}
 
-// MARK: - VCType
-enum VCType {
-    case main
+    /// Register dependencies such as `Repositories`, `Managers` etc.
+    private func registerDependencies() {
+        Resolver.default.register(type: NetworkService.self) { NetworkManager() }
+    }
 }
