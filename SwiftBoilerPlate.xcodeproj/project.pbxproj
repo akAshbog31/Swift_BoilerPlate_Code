@@ -214,6 +214,7 @@
 				0455A9D02B0CAF6E00C86E0A /* Extension */,
 				0455A9F22B0CAF6E00C86E0A /* GlobalVariables */,
 				38D291D42B0E4D6300AC5C5A /* Network */,
+				38A20C262B9DC7300080661D /* Dependencies */,
 				0455A9E82B0CAF6E00C86E0A /* PropertWrapper */,
 			);
 			path = Heplers;
@@ -263,7 +264,6 @@
 		0455A9E82B0CAF6E00C86E0A /* PropertWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				38A20C262B9DC7300080661D /* Dependencies */,
 				38A31EE62B9D80A4005CF0F6 /* UserDefaults */,
 			);
 			path = PropertWrapper;
