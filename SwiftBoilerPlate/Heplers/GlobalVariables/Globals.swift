@@ -18,14 +18,6 @@ typealias AppAnyPublisher<T> = AnyPublisher<T, Never>
 // MARK: - Public Valriable
 public let queue = DispatchQueue.main
 
-// MARK: - Globals
-enum Globals {
-    // MARK: - Key Window
-    static var keyWindow: UIWindow? {
-        UIApplication.shared.connectedScenes.compactMap { ($0 as? UIWindowScene)?.keyWindow }.last
-    }
-}
-
 // MARK: - ValidationError
 enum ValidationError: Error {
     case empty(type: String)

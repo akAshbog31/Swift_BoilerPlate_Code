@@ -29,7 +29,7 @@ final class SecondVm: ViewModel {
         input.weekSink(self) { strongSelf, event in
             switch event {
             case .popBack:
-                strongSelf.router.pop(with: nil, for: nil)
+                strongSelf.router.pop(with: .fade, for: 0.3)
             }
         }.store(in: &disposeBag)
         return output.eraseToAnyPublisher()

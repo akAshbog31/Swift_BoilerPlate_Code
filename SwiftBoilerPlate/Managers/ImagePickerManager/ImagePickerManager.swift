@@ -75,7 +75,7 @@ final class ImagePickerManager: NSObject {
             imagePicker.sourceType = .camera
             viewController?.present(imagePicker, animated: true, completion: nil)
         } else {
-            Globals.keyWindow?.rootViewController?.showAlert(msg: "No camera available.")
+            UIApplication.keyWindow?.rootViewController?.showAlert(msg: "No camera available.")
         }
     }
 

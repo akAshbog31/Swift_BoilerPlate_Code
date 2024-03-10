@@ -10,33 +10,6 @@ import IQKeyboardManagerSwift
 import Kingfisher
 import UIKit
 
-// MARK: - ViewController Transitions
-
-extension UIViewController {
-    func pushVc(viewController: UIViewController?,
-                transition type: CATransitionType = .fade,
-                interval: TimeInterval = 0.3) {
-        guard let viewController = viewController else {
-            return
-        }
-        createTransition(transition: type, interval: interval)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-
-    func popVc(transition type: CATransitionType = .fade, interval: TimeInterval = 0.3) {
-        createTransition(transition: type, interval: interval)
-        navigationController?.popViewController(animated: true)
-    }
-
-    func createTransition(transition type: CATransitionType = .fade, interval: TimeInterval = 0.3) {
-        let transition = CATransition()
-        transition.duration = interval
-        transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        transition.type = type
-        navigationController?.view.layer.add(transition, forKey: nil)
-    }
-}
-
 // MARK: - Hide/Show Huds
 
 extension UIViewController {
@@ -44,7 +17,7 @@ extension UIViewController {
         queue.async {
             IHProgressHUD.set(backgroundColor: .clear)
             IHProgressHUD.setHapticsEnabled(hapticsEnabled: true)
-            IHProgressHUD.set(containerView: Globals.keyWindow?.rootViewController?.view)
+            IHProgressHUD.set(containerView: UIApplication.keyWindow?.rootViewController?.view)
             IHProgressHUD.set(defaultAnimationType: .flat)
             IHProgressHUD.set(defaultMaskType: .clear)
             IHProgressHUD.set(foregroundColor: hudColor)
@@ -52,14 +25,14 @@ extension UIViewController {
             IHProgressHUD.set(font: .boldSystemFont(ofSize: 17.asDeviceHeight))
             IHProgressHUD.set(ringRadius: 20.asDeviceHeight)
             IHProgressHUD.show(withStatus: progressLabel)
-            Globals.keyWindow?.rootViewController?.view.isUserInteractionEnabled = false
+            UIApplication.keyWindow?.rootViewController?.view.isUserInteractionEnabled = false
         }
     }
 
     func hideHUD() {
         queue.async {
             IHProgressHUD.dismissWithCompletion {
-                Globals.keyWindow?.rootViewController?.view.isUserInteractionEnabled = true
+                UIApplication.keyWindow?.rootViewController?.view.isUserInteractionEnabled = true
             }
         }
     }
