@@ -11,6 +11,7 @@ import UIKit
 enum Route {
     case main
     case second
+    case third
 }
 
 extension Route {
@@ -20,6 +21,8 @@ extension Route {
             return MainVc(viewModel: MainVm())
         case .second:
             return SecondVc(viewModel: SecondVm())
+        case .third:
+            return ThirdVc(viewModel: ThirdVm())
         }
     }
 }

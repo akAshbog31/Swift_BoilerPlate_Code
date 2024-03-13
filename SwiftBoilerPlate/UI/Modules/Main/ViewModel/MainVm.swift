@@ -31,7 +31,7 @@ final class MainVm: ViewModel {
             case let .viewDidLoad(imageData):
                 strongSelf.sampleApiCallFunc(imageData: imageData)
             case .navigateToSecondVc:
-                strongSelf.router.push(to: .second, with: .fade, for: 0.3)
+                strongSelf.router.push(to: .second, with: nil, for: nil)
             }
         }.store(in: &bag)
         return output.eraseToAnyPublisher()

@@ -1,13 +1,13 @@
 //
-//  SecondVm.swift
+//  ThirdVm.swift
 //  SwiftBoilerPlate
 //
-//  Created by AKASH BOGHANI on 10/03/24.
+//  Created by AKASH BOGHANI on 13/03/24.
 //
 
 import Foundation
 
-final class SecondVm: ViewModel {
+final class ThirdVm: ViewModel {
     // MARK: - Properties
     private var disposeBag = Bag()
     private var output = AppSubject<Output>()
@@ -16,7 +16,7 @@ final class SecondVm: ViewModel {
 
     // MARK: - Enums
     enum Input {
-        case popBack
+        case didTapButtonBack
     }
 
     enum Output {
@@ -28,8 +28,8 @@ final class SecondVm: ViewModel {
     func transform(input: AppAnyPublisher<Input>) -> AppAnyPublisher<Output> {
         input.weekSink(self) { strongSelf, event in
             switch event {
-            case .popBack:
-                strongSelf.router.push(to: .third, with: nil, for: nil)
+            case .didTapButtonBack:
+                strongSelf.router.pop(to: .main, with: nil, for: nil)
             }
         }.store(in: &disposeBag)
         return output.eraseToAnyPublisher()

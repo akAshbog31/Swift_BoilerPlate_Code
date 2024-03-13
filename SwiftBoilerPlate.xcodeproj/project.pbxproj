@@ -39,6 +39,9 @@
 		0455AA442B0CC38A00C86E0A /* HeaderTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */; };
 		0455AA452B0CC38A00C86E0A /* HeaderTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */; };
 		3818EC022B8120280084AD85 /* Extention+Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818EC012B8120280084AD85 /* Extention+Publishers.swift */; };
+		383F5D342BA211E000B5E960 /* ThirdVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F5D322BA211E000B5E960 /* ThirdVc.swift */; };
+		383F5D352BA211E000B5E960 /* ThirdVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383F5D332BA211E000B5E960 /* ThirdVc.xib */; };
+		383F5D392BA2121200B5E960 /* ThirdVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F5D382BA2121200B5E960 /* ThirdVm.swift */; };
 		3869BA7D2B6F565400A7430B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3869BA7C2B6F565400A7430B /* Kingfisher */; };
 		389497B32B62BBE2007D19AA /* Extention+Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389497B22B62BBE2007D19AA /* Extention+Numbers.swift */; };
 		389497B62B62BD5C007D19AA /* Extention+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389497B52B62BD5C007D19AA /* Extention+Bundle.swift */; };
@@ -103,6 +106,9 @@
 		0455AA422B0CC38A00C86E0A /* HeaderTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderTitleCell.swift; sourceTree = "<group>"; };
 		0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTitleCell.xib; sourceTree = "<group>"; };
 		3818EC012B8120280084AD85 /* Extention+Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+Publishers.swift"; sourceTree = "<group>"; };
+		383F5D322BA211E000B5E960 /* ThirdVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVc.swift; sourceTree = "<group>"; };
+		383F5D332BA211E000B5E960 /* ThirdVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdVc.xib; sourceTree = "<group>"; };
+		383F5D382BA2121200B5E960 /* ThirdVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVm.swift; sourceTree = "<group>"; };
 		389497B22B62BBE2007D19AA /* Extention+Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+Numbers.swift"; sourceTree = "<group>"; };
 		389497B52B62BD5C007D19AA /* Extention+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+Bundle.swift"; sourceTree = "<group>"; };
 		38A20C272B9DC7300080661D /* Injected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
@@ -346,6 +352,32 @@
 			path = CollectionViewCell;
 			sourceTree = "<group>";
 		};
+		383F5D312BA211CE00B5E960 /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				383F5D372BA2120600B5E960 /* ViewModel */,
+				383F5D362BA211EE00B5E960 /* View */,
+			);
+			path = Third;
+			sourceTree = "<group>";
+		};
+		383F5D362BA211EE00B5E960 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				383F5D322BA211E000B5E960 /* ThirdVc.swift */,
+				383F5D332BA211E000B5E960 /* ThirdVc.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		383F5D372BA2120600B5E960 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				383F5D382BA2121200B5E960 /* ThirdVm.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		38A20C342B9DC90D0080661D /* Dependency */ = {
 			isa = PBXGroup;
 			children = (
@@ -387,6 +419,7 @@
 		38A31EF22B9D8987005CF0F6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				383F5D312BA211CE00B5E960 /* Third */,
 				38A31EF32B9D89D8005CF0F6 /* Base */,
 				38A31EFC2B9D8F5A005CF0F6 /* Main */,
 				38A31F0B2B9D9964005CF0F6 /* Second */,
@@ -581,6 +614,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				383F5D352BA211E000B5E960 /* ThirdVc.xib in Resources */,
 				0455A9F82B0CAF6E00C86E0A /* BottomSheetController.xib in Resources */,
 				38A31F052B9D8FDA005CF0F6 /* MainVc.xib in Resources */,
 				38A31F102B9D9999005CF0F6 /* SecondVc.xib in Resources */,
@@ -642,6 +676,7 @@
 				0455A9F92B0CAF6E00C86E0A /* BottomSheetController.swift in Sources */,
 				0455A9FC2B0CAF6E00C86E0A /* Extention+UICollectionView.swift in Sources */,
 				0455A9FE2B0CAF6E00C86E0A /* Extention+String.swift in Sources */,
+				383F5D342BA211E000B5E960 /* ThirdVc.swift in Sources */,
 				0455AA022B0CAF6E00C86E0A /* Extention+UITapGestureRecognizer.swift in Sources */,
 				0455AA002B0CAF6E00C86E0A /* Extention+Date.swift in Sources */,
 				38A20C312B9DC7830080661D /* Extention+UIApplication.swift in Sources */,
@@ -668,6 +703,7 @@
 				0455AA012B0CAF6E00C86E0A /* Extention+UiView.swift in Sources */,
 				0455A9B02B0CADE300C86E0A /* AppDelegate.swift in Sources */,
 				38A20C2C2B9DC7300080661D /* Resolver.swift in Sources */,
+				383F5D392BA2121200B5E960 /* ThirdVm.swift in Sources */,
 				0455AA102B0CAF6E00C86E0A /* AppLayout.swift in Sources */,
 				0455AA032B0CAF6E00C86E0A /* Extention+UItableView.swift in Sources */,
 				38A20C2E2B9DC7300080661D /* OptionalInjected.swift in Sources */,
