@@ -10,18 +10,15 @@ import UIKit
 // MARK: - AppRouter
 class AppRouter: Router {
     var navigationController: UINavigationController
-    private var routeStack: [Route]
-    private var currentRouteIndex: Int
+    let intialRoute: Route
 
     init(navigationController: UINavigationController, intialRoute: Route) {
         self.navigationController = navigationController
-        routeStack = [intialRoute]
-        currentRouteIndex = 0
+        self.intialRoute = intialRoute
     }
 
     func start() {
-        let viewController = routeStack[currentRouteIndex].viewController
-        navigationController.setViewControllers([viewController], animated: true)
+        navigationController.setViewControllers([intialRoute.viewController], animated: true)
     }
 
     func setRoot(to route: Route, duration: TimeInterval?, options: UIView.AnimationOptions?) {
@@ -39,35 +36,22 @@ class AppRouter: Router {
     }
 
     func push(to route: Route, with transitionType: CATransitionType?, for interval: TimeInterval?) {
-        routeStack.append(route)
         let viewController = route.viewController
         if let transitionType = transitionType, let interval = interval {
             createTransition(with: transitionType, for: interval)
         }
         navigationController.pushViewController(viewController, animated: true)
-        currentRouteIndex = routeStack.count - 1
     }
 
     func pop(with transitionType: CATransitionType?, for interval: TimeInterval?) {
-        if routeStack.count > 1 {
-            if let transitionType = transitionType, let interval = interval {
-                createTransition(with: transitionType, for: interval)
-            }
-            navigationController.popViewController(animated: true)
-            routeStack.removeLast()
-            currentRouteIndex -= 1
+        if let transitionType = transitionType, let interval = interval {
+            createTransition(with: transitionType, for: interval)
         }
+        navigationController.popViewController(animated: true)
     }
 
     func pop(to route: Route, with transitionType: CATransitionType?, for interval: TimeInterval?) {
-        guard let targetIndex = routeStack.firstIndex(of: route) else {
-            return
-        }
         if let targetViewController = navigationController.viewControllers.first(where: { $0.isKind(of: route.viewController.classForCoder) }) {
-            while currentRouteIndex > targetIndex {
-                routeStack.removeLast()
-                currentRouteIndex -= 1
-            }
             if let transitionType = transitionType, let interval = interval {
                 createTransition(with: transitionType, for: interval)
             }

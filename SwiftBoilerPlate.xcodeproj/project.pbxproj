@@ -40,8 +40,8 @@
 		0455AA452B0CC38A00C86E0A /* HeaderTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */; };
 		3818EC022B8120280084AD85 /* Extention+Publishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3818EC012B8120280084AD85 /* Extention+Publishers.swift */; };
 		383F5D342BA211E000B5E960 /* ThirdVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F5D322BA211E000B5E960 /* ThirdVc.swift */; };
-		383F5D352BA211E000B5E960 /* ThirdVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 383F5D332BA211E000B5E960 /* ThirdVc.xib */; };
 		383F5D392BA2121200B5E960 /* ThirdVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383F5D382BA2121200B5E960 /* ThirdVm.swift */; };
+		3844570E2BD312C8001521D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3844570D2BD312C8001521D0 /* Main.storyboard */; };
 		3869BA7D2B6F565400A7430B /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 3869BA7C2B6F565400A7430B /* Kingfisher */; };
 		389497B32B62BBE2007D19AA /* Extention+Numbers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389497B22B62BBE2007D19AA /* Extention+Numbers.swift */; };
 		389497B62B62BD5C007D19AA /* Extention+Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 389497B52B62BD5C007D19AA /* Extention+Bundle.swift */; };
@@ -57,10 +57,8 @@
 		38A31EF72B9D8A60005CF0F6 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A31EF62B9D8A60005CF0F6 /* ViewModel.swift */; };
 		38A31EFB2B9D8E37005CF0F6 /* XibView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A31EFA2B9D8E37005CF0F6 /* XibView.swift */; };
 		38A31F042B9D8FDA005CF0F6 /* MainVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A31F022B9D8FDA005CF0F6 /* MainVc.swift */; };
-		38A31F052B9D8FDA005CF0F6 /* MainVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A31F032B9D8FDA005CF0F6 /* MainVc.xib */; };
 		38A31F092B9D9019005CF0F6 /* MainVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A31F082B9D9019005CF0F6 /* MainVm.swift */; };
 		38A31F0F2B9D9999005CF0F6 /* SecondVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A31F0D2B9D9999005CF0F6 /* SecondVc.swift */; };
-		38A31F102B9D9999005CF0F6 /* SecondVc.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38A31F0E2B9D9999005CF0F6 /* SecondVc.xib */; };
 		38A31F132B9D99C6005CF0F6 /* SecondVm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A31F122B9D99C6005CF0F6 /* SecondVm.swift */; };
 		38B2C4722B111B4700720C66 /* IHProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 38B2C4712B111B4700720C66 /* IHProgressHUD */; };
 		38B2C4752B111CA600720C66 /* Extention+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B2C4742B111CA600720C66 /* Extention+UIColor.swift */; };
@@ -107,8 +105,8 @@
 		0455AA432B0CC38A00C86E0A /* HeaderTitleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderTitleCell.xib; sourceTree = "<group>"; };
 		3818EC012B8120280084AD85 /* Extention+Publishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+Publishers.swift"; sourceTree = "<group>"; };
 		383F5D322BA211E000B5E960 /* ThirdVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVc.swift; sourceTree = "<group>"; };
-		383F5D332BA211E000B5E960 /* ThirdVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThirdVc.xib; sourceTree = "<group>"; };
 		383F5D382BA2121200B5E960 /* ThirdVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdVm.swift; sourceTree = "<group>"; };
+		3844570D2BD312C8001521D0 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		389497B22B62BBE2007D19AA /* Extention+Numbers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+Numbers.swift"; sourceTree = "<group>"; };
 		389497B52B62BD5C007D19AA /* Extention+Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+Bundle.swift"; sourceTree = "<group>"; };
 		38A20C272B9DC7300080661D /* Injected.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
@@ -123,10 +121,8 @@
 		38A31EF62B9D8A60005CF0F6 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		38A31EFA2B9D8E37005CF0F6 /* XibView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibView.swift; sourceTree = "<group>"; };
 		38A31F022B9D8FDA005CF0F6 /* MainVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVc.swift; sourceTree = "<group>"; };
-		38A31F032B9D8FDA005CF0F6 /* MainVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainVc.xib; sourceTree = "<group>"; };
 		38A31F082B9D9019005CF0F6 /* MainVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVm.swift; sourceTree = "<group>"; };
 		38A31F0D2B9D9999005CF0F6 /* SecondVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVc.swift; sourceTree = "<group>"; };
-		38A31F0E2B9D9999005CF0F6 /* SecondVc.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SecondVc.xib; sourceTree = "<group>"; };
 		38A31F122B9D99C6005CF0F6 /* SecondVm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondVm.swift; sourceTree = "<group>"; };
 		38B2C4742B111CA600720C66 /* Extention+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UIColor.swift"; sourceTree = "<group>"; };
 		38BDCDCF2B1781EE00AA6CC4 /* Extention+UITabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extention+UITabBarController.swift"; sourceTree = "<group>"; };
@@ -205,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				0455A9BA2B0CADE500C86E0A /* LaunchScreen.storyboard */,
+				3844570D2BD312C8001521D0 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -365,7 +362,6 @@
 			isa = PBXGroup;
 			children = (
 				383F5D322BA211E000B5E960 /* ThirdVc.swift */,
-				383F5D332BA211E000B5E960 /* ThirdVc.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -419,10 +415,10 @@
 		38A31EF22B9D8987005CF0F6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				383F5D312BA211CE00B5E960 /* Third */,
 				38A31EF32B9D89D8005CF0F6 /* Base */,
 				38A31EFC2B9D8F5A005CF0F6 /* Main */,
 				38A31F0B2B9D9964005CF0F6 /* Second */,
+				383F5D312BA211CE00B5E960 /* Third */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -474,7 +470,6 @@
 			isa = PBXGroup;
 			children = (
 				38A31F022B9D8FDA005CF0F6 /* MainVc.swift */,
-				38A31F032B9D8FDA005CF0F6 /* MainVc.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -500,7 +495,6 @@
 			isa = PBXGroup;
 			children = (
 				38A31F0D2B9D9999005CF0F6 /* SecondVc.swift */,
-				38A31F0E2B9D9999005CF0F6 /* SecondVc.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -614,12 +608,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				383F5D352BA211E000B5E960 /* ThirdVc.xib in Resources */,
 				0455A9F82B0CAF6E00C86E0A /* BottomSheetController.xib in Resources */,
-				38A31F052B9D8FDA005CF0F6 /* MainVc.xib in Resources */,
-				38A31F102B9D9999005CF0F6 /* SecondVc.xib in Resources */,
 				0455A9BC2B0CADE500C86E0A /* LaunchScreen.storyboard in Resources */,
 				0455A9B92B0CADE500C86E0A /* Assets.xcassets in Resources */,
+				3844570E2BD312C8001521D0 /* Main.storyboard in Resources */,
 				0455AA412B0CC05200C86E0A /* MainCell.xib in Resources */,
 				0455AA452B0CC38A00C86E0A /* HeaderTitleCell.xib in Resources */,
 			);
@@ -875,6 +867,7 @@
 				INFOPLIST_FILE = SwiftBoilerPlate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -905,6 +898,7 @@
 				INFOPLIST_FILE = SwiftBoilerPlate/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (

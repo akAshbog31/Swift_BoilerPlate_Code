@@ -18,11 +18,14 @@ extension Route {
     var viewController: UIViewController {
         switch self {
         case .main:
-            return MainVc(viewModel: MainVm())
+            guard let vc = R.storyboard.main.mainVc() else { return .init() }
+            return vc
         case .second:
-            return SecondVc(viewModel: SecondVm())
+            guard let vc = R.storyboard.main.mainVc() else { return .init() }
+            return vc
         case .third:
-            return ThirdVc(viewModel: ThirdVm())
+            guard let vc = R.storyboard.main.mainVc() else { return .init() }
+            return vc
         }
     }
 }
